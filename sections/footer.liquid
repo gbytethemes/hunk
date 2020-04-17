@@ -1,0 +1,275 @@
+{% if section.settings.show_instagram %}
+{% assign instagram_count = section.settings.instagram_count | times: 5 %}
+<section class="instagram-section" data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom">
+  <div class="container">
+  {% if section.settings.title != blank %}
+    <div class="insta-title">
+      <h2 class="title">
+        {% if settings.instagram_link != blank %}
+          <a href="{{ settings.instagram_link }}" target="_blank">
+        {% endif %}
+        {{ section.settings.title | escape }}
+        {% if settings.instagram_link != blank %}
+          </a>
+        {% endif %}
+      </h2>
+    </div><!--.insta-title-->
+  {% endif %}
+  </div>
+
+  {% if section.settings.instagram_client_id != blank %}
+  <div class="insta-slider">
+    <div id="insta-feed"></div>
+  </div>
+  {% else %}
+  <div class="insta-slider">
+    <div class="clearfix placeholder-instagram">
+      {% for i in (1..instagram_count) %}
+        <div class="col-md-3">
+          <a href="#">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--instagram' }}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+</section>
+{% endif %}
+<footer data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-3">
+          <div class="footer-info">
+
+            <div class="footer-logo text-center">
+              {% if section.settings.image_logo != blank %}
+              {% include 'responsive-image' with
+                image: section.settings.image_logo,
+                max_width: 545,
+                max_height: 545
+              %}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div><!--.footer-logo ends-->
+
+            <div class="footer-contact">
+              <ul>
+                {% if section.settings.phone_number != blank %}
+                <li>Phone: <a href="tel:{{ section.settings.phone_number }}">{{ section.settings.phone_number }}</a></li>
+                {% endif %}
+                {% if section.settings.email != blank %}
+                <li>Email: <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></li>
+                {% endif %}
+              </ul>
+            </div><!--.footer-contact ends-->
+
+            <div class="social-media-icons">
+              {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+              <ul>
+                {% for social in social_accounts %}
+                  {%- assign social_handle = social | handleize -%}
+                  {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+                  {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+
+                  {% if settings[social_link] != blank %}
+                    <li>
+                      <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                        {% include social_icon %}
+                        <span class="icon-fallback-text">{{ social }}</span>
+                      </a>
+                    </li>
+                  {% endif %}
+
+                {% endfor %}
+              </ul>
+            </div><!--.social-media-icons ends-->
+
+          </div><!--.footer-info ends-->
+      </div>
+
+      <div class="footer-links col-md-6 col-xs-12 row">
+
+        <div class="col-sm-4 col-xs-6">
+          <div class="footer-link">
+            {%- assign footer_linklist = section.settings.footer_linklist -%}
+            {% if linklists[footer_linklist].links.size > 0 %}
+            <h5>{{ linklists[footer_linklist].title }}</h5>
+              <ul>
+                {% for link in linklists[footer_linklist].links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div><!--.footer-link ends-->
+        </div>
+
+        <div class="col-sm-4 col-xs-6">
+          <div class="footer-link">
+            {%- assign footer_linklist_second = section.settings.footer_linklist_second -%}
+            {% if linklists[footer_linklist_second].links.size > 0 %}
+            <h5>{{ linklists[footer_linklist_second].title }}</h5>
+              <ul>
+                {% for link in linklists[footer_linklist_second].links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div><!--.footer-link ends-->
+        </div>
+
+        <div class="col-sm-4 col-xs-12">
+          <div class="footer-link">
+            {%- assign footer_linklist_third = section.settings.footer_linklist_third -%}
+            {% if linklists[footer_linklist_third].links.size > 0 %}
+            <h5>{{ linklists[footer_linklist_third].title }}</h5>
+              <ul>
+                {% for link in linklists[footer_linklist_third].links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div><!--.footer-link ends-->
+        </div>
+
+      </div><!--.footer-links ends-->
+
+
+      <div class="col-md-3 col-xs-12">
+        <div class="mission-statement">
+          {% if section.settings.right_title != blank %}
+            <h5>Our Mission</h5>
+          {% endif %}
+          {% if section.settings.footer_text != blank %}
+            <p>
+              Our soul person is to provide our customers with the best quality of clothing for an affordable price! A happy customer is the  most rewarding feeling which is why we offer 15 day full refund if you are not satisfied. Please read our POLICIES for more information!
+            </p>
+          {% endif %}
+        </div><!--.mission-statement ends-->
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div class="copyright-section">
+    <div class="container">
+
+    <div class="copyright-info {% if section.settings.show_payment_icons %}col-md-6{% endif %} col-xs-12 text-center">
+      {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}. {{ powered_by_link }}
+    </div><!--.copyright-info ends-->
+
+    {% if section.settings.show_payment_icons %}
+    <div class="footer-payment_methods col-md-6 col-xs-12">
+      <span>We Accept:</span>
+        {% unless shop.enabled_payment_types == empty %}
+          <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
+          <ul class="payment-icons">
+            {% for type in shop.enabled_payment_types %}
+              <li>
+                {{ type | payment_type_svg_tag: class: 'icon' }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endunless %}
+    </div><!--.footer-payment_methods ends-->
+    {% endif %}
+
+    </div>
+  </div>
+
+
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_instagram",
+        "label": "Show Instagram",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "instagram_client_id",
+        "label": "Instagram Access Token ([?](https:\/\/outofthesandbox.com\/pages\/instagram-access-token))"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Instagram"
+      },
+      {
+        "type": "range",
+        "id": "instagram_count",
+        "label": "Number of rows",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "default": 1
+      },
+      {
+        "type": "image_picker",
+        "id": "image_logo",
+        "label": "Logo Image"
+      },
+      {
+        "type": "text",
+        "id": "phone_number",
+        "label": "Phone Number",
+        "default": "999-555-5555"
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Email Address",
+        "default": "example@example.com"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist",
+        "label": "First menu",
+        "default": "footer"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_second",
+        "label": "Second menu",
+        "default": "footer"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_third",
+        "label": "Third menu",
+        "default": "footer"
+      },
+      {
+        "type": "text",
+        "id": "right_title",
+        "label": "Right Header",
+        "default": "Our Mission"
+      },
+      {
+        "type": "textarea",
+        "id": "footer_text",
+        "label": "Right Text"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "Show payment icons",
+        "default": false
+      }
+    ]
+  }
+
+{% endschema %}

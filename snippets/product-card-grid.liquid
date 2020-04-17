@@ -1,0 +1,63 @@
+<div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
+  <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
+    <span class="visually-hidden">{{ product.title }}</span>
+  </a>
+
+  {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+  {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+  {% unless product.featured_image == blank %}
+    {% include 'image-style' with image: product.featured_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
+  {% endunless %}
+
+  <div class="product-card__image-with-placeholder-wrapper row" data-image-with-placeholder-wrapper>
+    <div class="full-collection-holder col-xs-12">
+      <a class="featured-collection-item" href="{{ product.url }}">
+          {% if product.featured_image != blank %}
+            <div class="featured-collection__image">
+              <div class="product-img-container">
+                {% include 'responsive-image' with
+                  image: product.featured_image,
+                  max_width: 480,
+                  max_height: 480
+                %}
+              </div>
+            </div>
+          {% endif %}
+
+      <p class="product-title">{{ product.title | escape }}</p>
+
+      <p class="product-category">Comfortable Stretch Denim</p>
+
+      <span>
+        {% if product.compare_at_price > product.price %}
+          {% if product.price_varies %}
+            {%- assign sale_price = product.price | money -%}
+            {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+          {% else %}
+            {{ 'products.product.on_sale' | t }}
+            {{ product.price | money }}
+          {% endif %}
+        {% else %}
+          {% if product.price_varies %}
+            {%- assign price = product.price | money -%}
+            {{ 'products.product.from_text_html' | t: price: price }}
+          {% else %}
+            {{ product.price | money }}
+          {% endif %}
+        {% endif %}
+      </span>
+      </a><!--.featured-collection-item ends-->
+
+
+    </div><!--.full-collection-holder ends-->
+    <div class="placeholder-background placeholder-background--animation" data-image-placeholder></div>
+  </div>
+
+  <noscript>
+    {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+    <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
+  </noscript>
+
+</div>

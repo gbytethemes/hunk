@@ -1,0 +1,206 @@
+<section class="product-container" data-section-id="{{ section.id }}" data-section-type="product">
+
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+  <div class="breadcrumbs-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 text-left">
+          {%- include 'breadcrumbs' -%}
+        </div>
+      </div>
+    </div>
+  </div><!--.collection-top-product ends-->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            {% for image in product.images %}
+              {% capture wrapper_class %}
+                {%- unless featured_image == image -%}
+                  hide
+                {%- endunless -%}
+              {% endcapture %}
+
+              {% include 'responsive-image' with
+                image: image,
+                max_width: 700,
+                max_height: 800,
+                image_attributes: "data-product-featured-image",
+                wrapper_class: wrapper_class,
+                wrapper_attributes: "data-product-image-wrapper",
+              %}
+            {% endfor %}
+          </div>
+
+          <div class="product-thumbnail-image col-md-12">
+            {% if product.images.size > 1 %}
+              <ul>
+                {% for image in product.images %}
+                  <li>
+                    <a href="{{ image.src | img_url: '480x480' }}" data-thumbnail-id="{{ image.id }}" data-product-single-thumbnail{% if featured_image == image %} aria-current="true"{% endif %}>
+                      <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div><!--.product-thumbnail-image ends-->
+
+          <div class="social-media-share col-md-12">
+            <div class="soical-title">
+              Social Links:
+            </div>
+            {% if section.settings.show_share_buttons %}
+              {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h1 class="product-title">{{ product.title }}</h1>
+
+        <div class="price-wrapper" data-price-wrapper>
+          {% if product.compare_at_price_max > product.price %}
+            <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+            <s data-compare-price>
+              {% if current_variant.compare_at_price > current_variant.price %}
+                {{ current_variant.compare_at_price | money }}
+              {% endif %}
+            </s>
+          {% endif %}
+
+          <span data-product-price>
+            {{ current_variant.price | money }}
+          </span>
+
+        </div>
+
+        <p>{{ product.vendor }}</p>
+
+        <div class="rte">
+          {{ product.description }}
+        </div>
+
+
+          {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
+            {% unless product.has_only_default_variant %}
+              {% for option in product.options_with_values %}
+
+                  {% if forloop.index0 > 0 %}
+                  <div class="row js">
+                    <label class="product-label">{{ option.name }}</label>
+
+                    {% for value in option.values %}
+                      <div class="col-md-4">
+                        <input type="radio" id="Option{{ option.position }}-{{ value }}" name="options[{{ option.name }}]" value="{{ value }}"{% if option.selected_value == value %} checked{% endif %}>
+                        <label for="Option{{ option.position }}-{{ value }}">{{ value }}</label>
+                      </div>
+                    {% endfor %}
+                  </div>
+
+                  {% else %}
+                  <div class="row js select-arrow">
+                    <label for="Option{{ option.position }}">
+                      {{ option.name }}
+                    </label>
+
+                    <select
+                      id="Option{{ option.position }}"
+                      name="options[{{ option.name | escape }}]">
+                      {% for value in option.values %}
+                        <option
+                          value="{{ value | escape }}"
+                          {% if option.selected_value == value %}selected="selected"{% endif %}>
+                            {{ value }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  {% endif %}
+
+              {% endfor %}
+            {% endunless %}
+
+            <noscript>
+              <select name="id">
+                {% for variant in product.variants %}
+                  <option
+                    {% if variant == current_variant %}selected="selected"{% endif %}
+                    {% unless variant.available %}disabled="disabled"{% endunless %}
+                    value="{{ variant.id }}">
+                      {{ variant.title }}
+                  </option>
+                {% endfor %}
+              </select>
+            </noscript>
+
+
+            <label class="hidden" for="Quantity">{{ 'products.product.quantity' | t }}</label>
+
+            <button class="minus-btn" type="button" name="button">-</button>
+            <input class="qtn-number" type="text" id="Quantity" name="quantity" value="1" min="1">
+            <button class="plus-btn" type="button" name="button">+</button>
+
+            <script type="text/javascript">
+              jQuery('.minus-btn').on('click', function(){
+                var cur_val = jQuery('.qtn-number').val();
+                cur_val = parseInt(cur_val) - 1;
+                if(cur_val < 0){
+                  cur_val = 0;
+                }
+                jQuery('.qtn-number').val(cur_val);
+              });
+
+              jQuery('.plus-btn').on('click', function(){
+                var cur_val = jQuery('.qtn-number').val();
+                cur_val = parseInt(cur_val) + 1;
+                if(cur_val < 0){
+                  cur_val = 0;
+                }
+                jQuery('.qtn-number').val(cur_val);
+              });
+            </script>
+
+            <button
+              type="submit"
+              name="add"
+              class="product-atc-btn"
+              data-submit-button
+              {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                <span data-submit-button-text>
+                  {% if current_variant.available %}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {% else %}
+                    {{ 'products.product.sold_out' | t }}
+                  {% endif %}
+                </span>
+            </button>
+          {% endform %}
+
+      </div><!--.col-md-6-->
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

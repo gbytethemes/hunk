@@ -1,0 +1,109 @@
+{% if template == 'index' %}
+<section class="home-slider">
+  <section class="homepage-slider">
+          <!--START: home_carousel-->
+          <div class="homeCarousel flexslider" data-animation="[hc_effect]" data-slideshowspeed="[hc_delay]">
+              <ul class="slides">
+                  <!--START: carousel-->
+                  <li>
+                    <div class="tint"></div>
+                    <a href="[link]">
+                      <img src="{{ 'slider-img2.jpg' | asset_img_url: 'master' }}" alt="" />
+                    </a>
+                    <div class="slider-info text-left">
+                      <div class="slider-info-holder tc-animate-me sliderAnimation" data-animation="fadeInLeft">
+                        <h2>Product Name</h2>
+                        <p>Product description here.</p>
+                        <a class="btn" href="#">View</a>
+                      </div>
+                    </div><!--.slider-info ends-->
+                  </li>
+
+                  <li>
+                    <div class="tint"></div>
+                    <a href="[link]">
+                      <img src="{{ 'slider-img1.jpg' | asset_img_url: 'master' }}" alt="" />
+                    </a>
+                    <div class="slider-info text-right">
+                      <div class="slider-info-holder tc-animate-me sliderAnimation" data-animation="fadeInRight">
+                        <h2>Product Name 2</h2>
+                        <p>Product description here.</p>
+                        <a class="btn" href="#">View</a>
+                      </div>
+                    </div><!--.slider-info ends-->
+                  </li>
+
+                  <li>
+                    <div class="tint"></div>
+                    <a href="[link]">
+                      <img src="{{ 'slider-img3.jpg' | asset_img_url: 'master' }}" alt="" />
+                    </a>
+                    <div class="slider-info text-center">
+                      <div class="slider-info-holder tc-animate-me sliderAnimation" data-animation="fadeInUp">
+                        <h2>Product Name 3</h2>
+                        <p>Product description here.</p>
+                        <a class="btn" href="#">View</a>
+                      </div>
+                    </div><!--.slider-info ends-->
+                  </li>
+                  <!--END: carousel-->
+              </ul>
+          </div>
+          <!--END: home_carousel-->
+  </section>
+  
+</section><!--.home-slider ends-->
+<script type="text/javascript" charset="utf-8">
+    jQuery(function () {
+        jQuery('.homeCarousel').flexslider({
+          animation: jQuery('.homeCarousel').attr('data-animation'),
+          slideshow: true,
+          slideshowSpeed: jQuery('.homeCarousel').attr('data-slideshowspeed'),
+          controlNav: true,
+          keyboard: false,
+          slideshowSpeed: 7000,           //Integer: Set the speed of the slideshow cycling, in milliseconds
+          animationSpeed: 3000,
+          start: function(slider){
+
+            var currentSlide = slider.find("li.flex-active-slide");
+            jQuery(currentSlide).addClass('previousSlide');
+
+            var element = jQuery(currentSlide).find('.tc-animate-me');
+            var animateClass = jQuery(element).data('animation');
+            jQuery(element).addClass('animated ' + animateClass);
+
+          },
+          before: function(slider){
+
+            var currentSlide = slider.find("li.flex-active-slide");
+            jQuery(currentSlide).addClass('previousSlide');
+
+            var element = jQuery(currentSlide).find('.tc-animate-me');
+            var animateClass = jQuery(element).data('animation');
+            jQuery(element).addClass('animated ' + animateClass);
+
+          },
+          after: function(slider){
+            //Find Previous Slider And remove animation classes
+            var previousAnimatedElement = jQuery('.previousSlide').find('.tc-animate-me');
+            var previousAnimatedElementData = jQuery(previousAnimatedElement).data('animation');
+            jQuery(previousAnimatedElement).removeClass('animated');
+            jQuery(previousAnimatedElement).removeClass(previousAnimatedElementData);
+            jQuery('.slides li').each(function(){
+              jQuery(this).removeClass('previousSlide');
+            });
+            // console.log(previousAnimatedElementData);
+
+            //Animate Current Slider
+            var currentSlide = slider.find("li.flex-active-slide");
+            jQuery(currentSlide).addClass('previousSlide');
+            var element = jQuery(currentSlide).find('.tc-animate-me');
+
+            var animateClass = jQuery(element).data('animation');
+            jQuery(element).addClass('animated ' + animateClass);
+
+          }
+        });
+    });
+</script>
+{% endif %}

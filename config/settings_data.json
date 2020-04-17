@@ -1,0 +1,249 @@
+{
+  "current": {
+    "color_accent": "#c4cdd5",
+    "color_body_text": "#161d25",
+    "color_main_bg": "#fff",
+    "font_heading": "helvetica_n4",
+    "font_body": "helvetica_n4",
+    "share_image": "",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "#",
+    "social_facebook_link": "#",
+    "social_pinterest_link": "#",
+    "social_instagram_link": "#",
+    "social_snapchat_link": "#",
+    "social_tumblr_link": "#",
+    "social_youtube_link": "#",
+    "social_vimeo_link": "",
+    "cart_notes_enable": true,
+    "favicon": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "announcement_bar_enabled": true,
+          "announcement_bar_home_page_only": false,
+          "social_media_links": true,
+          "announcement_bar_text": "Free Shipping on all orders $75+",
+          "announcement_bar_link": "",
+          "logo": "",
+          "logo_max_width": 450,
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "show_instagram": true,
+          "instagram_client_id": "396567693.1677ed0.806dbfec8151490a83de548e6439e2c1",
+          "title": "Follow Us to Keep Up With Trends & Sales!",
+          "instagram_count": 1,
+          "footer_linklist": "footer",
+          "show_payment_icons": true
+        }
+      },
+      "1573350439619": {
+        "type": "newsletter",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/newsletter-img.png",
+          "layout": "left",
+          "background_color": "#7fc6a4",
+          "text_color": "#333333",
+          "section_title": "Who Doesn’t Love  <br>Saving Money?",
+          "subheading": "Sign up for our weekly promo emails to stay up to date with our latest products!\nAlso, to say thank you our first email to you will be 40% off your first purchase!",
+          "button_label": "Button label"
+        }
+      },
+      "1585788680826": {
+        "type": "tile-slider",
+        "blocks": {
+          "1585790118142": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/slider.jpg",
+              "title_position": "center",
+              "slide_title": "Washed DenimJacket",
+              "subheading": "extra flexibility, total comfort, and a perfect fit.",
+              "button_label": "Shop",
+              "button_link": "shopify:\/\/pages\/about"
+            }
+          },
+          "1585790207061": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/slider2.jpg",
+              "title_position": "right",
+              "slide_title": "Leather Chukka Boot",
+              "subheading": "sleek leather and fine details.",
+              "button_label": "Shop",
+              "button_link": "shopify:\/\/pages\/about"
+            }
+          },
+          "1585791377878": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/slider3.jpg",
+              "title_position": "left",
+              "slide_title": "Nude Glasses",
+              "subheading": "simple square shaped that can frame any face.",
+              "button_label": "Shop",
+              "button_link": "shopify:\/\/pages\/about"
+            }
+          }
+        },
+        "block_order": [
+          "1585790118142",
+          "1585790207061",
+          "1585791377878"
+        ],
+        "settings": {
+          "text_size": "medium",
+          "show_overlay": true,
+          "autorotate": true,
+          "autorotate_speed": 5
+        }
+      },
+      "1585857610547": {
+        "type": "rich-text",
+        "settings": {
+          "title": "At A Glance",
+          "text": "<p>Our soul purpose is to provide quality products at an affordable price. All our products are made in the USA, with wrinkle-free, breathable, 100% cotton fabric, and&nbsp; well-crafted details.&nbsp;<\/p>",
+          "button_label": "Read More",
+          "button_link": "shopify:\/\/pages\/about"
+        }
+      },
+      "1585860482161": {
+        "type": "image-with-text",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/banner1.png",
+          "layout": "left",
+          "title": "25% Off AllJeans!",
+          "text": "<p>For a limited time all jeans are 25% off! Hurry before this incredible deal ends!&nbsp;<\/p>",
+          "button_label": "Button label",
+          "button_link": ""
+        }
+      },
+      "1586367425953": {
+        "type": "logo-bar",
+        "blocks": {
+          "1586367425953-0": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/AllstarJeans.png",
+              "link": ""
+            }
+          },
+          "1586367425953-1": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2020-04-11_at_9.08.20_PM.png",
+              "link": ""
+            }
+          },
+          "1586367425953-2": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/brands1.png",
+              "link": ""
+            }
+          },
+          "1586367425953-3": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2020-04-11_at_9.08.27_PM.png",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1586367425953-0",
+          "1586367425953-1",
+          "1586367425953-2",
+          "1586367425953-3"
+        ],
+        "settings": {
+          "title": "Brands"
+        }
+      },
+      "1586368455855": {
+        "type": "quotes",
+        "blocks": {
+          "1586368455855-0": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>I bought the&nbsp;grey washed jeans and they fit perfectly and are very comfortable!&nbsp;<\/p>",
+              "author": "Matthew Barnes"
+            }
+          },
+          "1586368455855-1": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Love their jackets, I have 3 of them and wear them all the time. They are very versatile for any occasion.<\/p>",
+              "author": "Carlos Perez"
+            }
+          },
+          "1586368455855-2": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Highly recommend the skinny washed jeans! they Fit great.&nbsp;<\/p>",
+              "author": "Erik R."
+            }
+          }
+        },
+        "block_order": [
+          "1586368455855-0",
+          "1586368455855-1",
+          "1586368455855-2"
+        ],
+        "settings": {
+          "title": "Testimonials"
+        }
+      },
+      "1586461830771": {
+        "type": "blog-posts",
+        "settings": {
+          "title": "Blog posts",
+          "blog": "news",
+          "post_limit": 3,
+          "blog_show_author": false,
+          "blog_show_date": true
+        }
+      },
+      "1586538601332": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Featured Collection",
+          "collection": "all",
+          "show_view_all": true
+        }
+      }
+    },
+    "content_for_index": [
+      "1585788680826",
+      "1585857610547",
+      "1586538601332",
+      "1585860482161",
+      "1586367425953",
+      "1573350439619",
+      "1586368455855",
+      "1586461830771"
+    ]
+  }
+}

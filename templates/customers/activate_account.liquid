@@ -1,0 +1,48 @@
+
+<div class="container">
+  <div class="form-structure">
+  <div class="row">
+
+<div class="col-xs-12">
+  <h1 class="title">{{ 'customer.activate_account.title' | t }}</h1>
+  <p>{{ 'customer.activate_account.subtext' | t }}</p>
+</div>
+
+{% form 'activate_customer_password' %}
+<div class="col-xs-12">
+  {{ form.errors | default_errors }}
+</div>
+
+<div class="col-md-6 col-xs-12">
+  <p>
+    <label for="CustomerPassword" class="label-hidden">
+      {{ 'customer.activate_account.password' | t }}
+    </label>
+    <input type="password"
+      name="customer[password]"
+      id="CustomerPassword"
+      placeholder="{{ 'customer.activate_account.password' | t }}">
+  </p>
+</div>
+
+<div class="col-md-6 col-xs-12">
+  <p>
+    <label for="CustomerPasswordConfirmation" class="label-hidden">
+      {{ 'customer.activate_account.password_confirm' | t }}
+    </label>
+    <input type="password"
+      name="customer[password_confirmation]"
+      id="CustomerPasswordConfirmation"
+      placeholder="{{ 'customer.activate_account.password_confirm' | t }}">
+  </p>
+</div>
+
+<div class="col-md-6 col-xs-12">
+  <input type="submit" class="btn button" value="{{ 'customer.activate_account.submit' | t }}">
+  <input type="submit" class="btn button button--secondary" name="decline" value="{{ 'customer.activate_account.cancel' | t }}">
+</div>
+{% endform %}
+
+</div>
+</div>
+</div>

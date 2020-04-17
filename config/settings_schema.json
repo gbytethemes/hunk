@@ -1,0 +1,553 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Hunk",
+    "theme_version": "1.0.0",
+    "theme_author": "Gordonbyte",
+    "theme_documentation_url": "https:\/\/github.com\/Shopify\/starter-theme",
+    "theme_support_url": "https:\/\/github.com\/Shopify\/starter-theme\/issues"
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "universal_banner_image",
+        "label": "Banner Image"
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Default Colors"
+      },
+      {
+        "type": "color",
+        "id": "body_bg_color",
+        "label": "Background",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "theme_color",
+        "label": "Theme",
+        "default": "#7fc6a4"
+      },
+      {
+        "type": "color",
+        "id": "title_headings",
+        "label": "Title Headings",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "body_text",
+        "label": "Body text",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "text_links",
+        "label": "Text Links",
+        "default": "#428bca"
+      },
+      {
+        "type": "color",
+        "id": "text_links_hover",
+        "label": "Text Links Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "header",
+        "content": "Announcement Bar"
+      },
+      {
+        "type": "color",
+        "id": "bar_text",
+        "label": "Text",
+        "default": "#000000"
+      },
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "color",
+        "id": "header_logo",
+        "label": "Logo",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "header_menu",
+        "label": "Logo",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "header_icons",
+        "label": "Logo",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "header_background",
+        "label": "Background",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "header_border_lines",
+        "label": "Border",
+        "default": "#eee"
+      },
+      {
+        "type": "header",
+        "content": "Default Button"
+      },
+      {
+        "type": "color",
+        "id": "default_button_text",
+        "label": "Text",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "default_button_text_hover",
+        "label": "Text Hover",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "default_button_background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "default_button_background_hover",
+        "label": "Background Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "default_button_border",
+        "label": "Border",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "default_button_border_hover",
+        "label": "Border Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "header",
+        "content": "Slider"
+      },
+      {
+        "type": "color",
+        "id": "slider_overlay",
+        "label": "Overlay",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "slider_header_title",
+        "label": "Header Title",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "slider_header_description",
+        "label": "Description",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "slider_button_text",
+        "label": "Button Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "slider_button_text_hover",
+        "label": "Button Text Hover",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "slider_button_background",
+        "label": "Button Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "slider_button_background_hover",
+        "label": "Button Background Hover",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "slider_button_border",
+        "label": "Button Border",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "slider_button_border_hover",
+        "label": "Button Border Hover",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Arrows"
+      },
+      {
+        "type": "color",
+        "id": "dropdown_arrow",
+        "label": "Fill color",
+        "default": "#444444"
+      },
+      {
+        "type": "header",
+        "content": "Products/Blog Lists"
+      },
+      {
+        "type": "color",
+        "id": "color_titles",
+        "label": "Title",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "product_background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "product_background_hover",
+        "label": "Background Hover",
+        "default": "#7fc6a4"
+      },
+      {
+        "type": "header",
+        "content": "Form Fields"
+      },
+      {
+        "type": "color",
+        "id": "form_fields",
+        "label": "Text",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "form_fields_border",
+        "label": "Borders",
+        "default": "#eeeeee"
+      },
+      {
+        "type": "color",
+        "id": "form_fields_background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Sale Tag"
+      },
+      {
+        "type": "color",
+        "id": "sale_tag_text",
+        "label": "Sale Text",
+        "default": "#404040"
+      },
+      {
+        "type": "color",
+        "id": "sale_tag_bg",
+        "label": "Sale Background",
+        "default": "#f2dfb1"
+      },
+      {
+        "type": "color",
+        "id": "sale_tag_border",
+        "label": "Sale Border",
+        "default": "#e6d19d"
+      },
+      {
+        "type": "header",
+        "content": "Social Icons"
+      },
+      {
+        "type": "color",
+        "id": "social_icon",
+        "label": "Icon",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "social_icon_hover",
+        "label": "Hover",
+        "default": "#000000"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_logo",
+        "default": "helvetica_n4",
+        "label": "Logo"
+      },
+      {
+        "type": "range",
+        "id": "font_size_font_logo",
+        "min": 9,
+        "max": 72,
+        "step": 1,
+        "unit": "px",
+        "label": "Font base size",
+        "default": 48
+      },
+      {
+        "type": "font_picker",
+        "id": "font_menu",
+        "default": "helvetica_n4",
+        "label": "Main Menu"
+      },
+      {
+        "type": "range",
+        "id": "font_size_font_menu",
+        "min": 9,
+        "max": 72,
+        "step": 1,
+        "unit": "px",
+        "label": "Font base size",
+        "default": 16
+      },
+      {
+        "type": "header",
+        "content": "Body"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "default": "helvetica_n4",
+        "label": "Headings"
+      },
+      {
+        "type": "range",
+        "id": "font_size_font_heading",
+        "min": 9,
+        "max": 72,
+        "step": 1,
+        "unit": "px",
+        "label": "Font base size",
+        "default": 32
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body_two",
+        "default": "helvetica_n4",
+        "label": "Body"
+      },
+      {
+        "type": "range",
+        "id": "font_size_body_two",
+        "min": 9,
+        "max": 72,
+        "step": 1,
+        "unit": "px",
+        "label": "Font base size",
+        "default": 16
+      },
+      {
+        "type": "font_picker",
+        "id": "font_button",
+        "default": "helvetica_n4",
+        "label": "Button"
+      },
+      {
+        "type": "range",
+        "id": "font_size_font_button",
+        "min": 9,
+        "max": 72,
+        "step": 1,
+        "unit": "px",
+        "label": "Font base size",
+        "default": 14
+      },
+      {
+        "type": "header",
+        "content": "Product"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_product_title",
+        "default": "helvetica_n4",
+        "label": "Title"
+      },
+      {
+        "type": "range",
+        "id": "font_size_product_title",
+        "min": 9,
+        "max": 72,
+        "step": 1,
+        "unit": "px",
+        "label": "Font base size",
+        "default": 24
+      },
+      {
+        "type": "font_picker",
+        "id": "font_product_price",
+        "default": "helvetica_n4",
+        "label": "Price"
+      },
+      {
+        "type": "range",
+        "id": "font_size_product_price",
+        "min": 9,
+        "max": 72,
+        "step": 1,
+        "unit": "px",
+        "label": "Font base size",
+        "default": 14
+      },
+      {
+        "type": "font_picker",
+        "id": "font_sale",
+        "default": "helvetica_n4",
+        "label": "onSale Text"
+      },
+      {
+        "type": "range",
+        "id": "font_size_font_sale",
+        "min": 9,
+        "max": 72,
+        "step": 1,
+        "unit": "px",
+        "label": "Font base size",
+        "default": 14
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social sharing image"
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Image",
+        "info": "Shown when sharing a link on social media. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/troubleshooting\/showing-social-media-thumbnail-images\/) about image thumbnails."
+      },
+      {
+        "type": "header",
+        "content": "Social sharing options"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_blog",
+        "label": "Enable sharing for blog articles",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Share on Facebook",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Tweet on Twitter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pin on Pinterest",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Sharing links"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter link"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook link"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest link"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "Snapchat link"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "Tumblr link"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "Youtube link"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "Vimeo link"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  }
+]

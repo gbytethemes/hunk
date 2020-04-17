@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12">
+      <h3 class="title">Location</h3>
+      <p>123 Some St. Suite 101 <br>Boca Raton, Fl 33433</p>
+    </div>
+
+    <div class="main-contact-info col-sm-4 hidden-xs">
+      {% include 'down-arrow' %}
+    </div>
+
+    <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12">
+      <h3 class="title">Contact Us</h3>
+      <ul>
+        <li>P: 954-555-5555</li>
+        <li>Email: Email@email.com</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="begin-form text-center">Want to get in touch with us? Just fill out the form below and we’ll get back to you as soon as possible. <br> This is a demo store. If you want to get in touch with the real Lea & Randy, you contact them here.</p>
+</div>
+
+{% schema %}
+  {
+    "name": "Contact Info",
+    "settings": [
+      {
+        "type": "text",
+        "id": "location",
+        "label": "Location Heading",
+        "default": "Title"
+      },
+      {
+        "type": "text",
+        "id": "address",
+        "label": "Address"
+      },
+      {
+        "type": "text",
+        "id": "phone_number",
+        "label": "Contact Info",
+        "default": "Text"
+      },
+      {
+        "type": "textarea",
+        "id": "welcometext",
+        "label": "Welcome Message",
+        "default": "<p>Want to get in touch with us? Just fill out the form below and we’ll get back to you as soon as possible.
+This is a demo store. If you want to get in touch with the real Lea & Randy, you contact them here.</p>"
+      }
+    ]
+    "blocks": [{
+      "type":
+      "settings": [{
+        "label": ""
+      }]
+    }]
+  }
+{% endschema %}

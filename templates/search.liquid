@@ -1,0 +1,96 @@
+<div class="collection-banner-title" style="background-image:url({{ settings.universal_banner_image | img_url: 'master' }});">
+  <div class="container">
+    <h1 class="collection-title title">
+      {% if search.performed %}
+        <span class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}:</span>
+          {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+      {% else %}
+        {{ 'general.search.title' | t }}
+      {% endif %}</h1>
+  </div>
+  {% include 'down-arrow' %}
+</div><!--.collection-banner-title ends-->
+
+<div class="search-container container">
+  <div class="row">
+
+{% paginate search.results by 12 %}
+
+  {% if search.performed %}
+    {% if search.results_count == 0 %}
+
+      <div class="text-center col-xs-12">
+        <p>{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
+      </div>
+    {% else %}
+
+      <h2 class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}</h2>
+
+        {% for item in search.results %}
+
+        <div class="full-collection-holder col-md-4 col-xs-12" data-aos="flip-left">
+            <a class="featured-collection-item" href="{{ item.url | within: collection }}">
+
+                <div class="featured-collection__image">
+                  <div class="product-img-container">
+                    {% assign featured_image = item.image | default: item.featured_image %}
+                    {% if featured_image != blank %}
+                      {{ featured_image | img_url: 'master' | img_tag }}
+                    {% endif %}
+                  </div>
+                </div>
+
+          <p class="product-title">{{ item.title }}</p>
+
+          <p class="product-category">Comfortable Stretch Denim</p>
+
+          {% if item.object_type == 'product' %}
+            <p class="product-money">
+            {% if item.compare_at_price > item.price %}
+              {% if item.price_varies %}
+                {% assign sale_price = item.price | money %}
+                {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+              {% else %}
+                {{ 'products.product.on_sale' | t }}
+                {{ item.price | money }}
+              {% endif %}
+              {{ 'products.product.regular_price' | t }}
+              <s>{{ item.compare_at_price | money }}</s>
+            {% else %}
+              {% if item.price_varies %}
+                {% assign price = item.price | money %}
+                {{ 'products.product.from_text_html' | t: price: price }}
+              {% else %}
+                {{ item.price | money }}
+              {% endif %}
+            {% endif %}
+            {% unless item.available %}
+            {{ 'products.product.sold_out' | t }}
+            {% endunless %}
+            </p>
+
+            <span>VIEW</span>
+
+          {% else %}
+            <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
+          {% endif %}
+          </a><!--.featured-collection-item ends-->
+
+
+        </div><!--.full-collection-holder ends-->
+
+        {% endfor %}
+
+      <div class="col-xs-12">
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
+      </div>
+
+    {% endif %}
+  {% endif %}
+
+{% endpaginate %}
+
+  </div>
+</div>

@@ -1,0 +1,31 @@
+{% if settings.social_twitter_link != '' %}
+  <li class="twitter"><a href="{{ settings.social_twitter_link }}" title="{{ shop.name }} on Twitter" rel="me" target="_blank">{%- include 'icon-twitter' -%}</a></li>
+{% endif %}
+
+{% if settings.social_facebook_link != '' %}
+  <li class="facebook"><a href="{{ settings.social_facebook_link }}" title="{{ shop.name }} on Facebook" rel="me" target="_blank">{%- include 'icon-facebook' -%}</a></li>
+{% endif %}
+
+{% if settings.social_youtube_link != '' %}
+  <li class="youtube"><a href="{{ settings.social_youtube_link }}" title="{{ shop.name }} on YouTube" rel="me" target="_blank">{%- include 'icon-youtube' -%}</a></li>
+{% endif %}
+
+{% if settings.social_vimeo_link != '' %}
+  <li class="vimeo"><a href="{{ settings.social_vimeo_link }}" title="{{ shop.name }} on Vimeo" rel="me" target="_blank">{%- include 'icon-vimeo' -%}</a></li>
+{% endif %}
+
+{% if settings.social_pinterest_link != '' %}
+  <li class="pinterest"><a href="{{ settings.social_pinterest_link }}" title="{{ shop.name }} on Pinterest" rel="me" target="_blank">{%- include 'icon-pinterest' -%}</a></li>
+{% endif %}
+
+{% if settings.social_tumblr_link != '' %}
+  <li class="tumblr"><a href="{{ settings.social_tumblr_link }}" title="{{ shop.name }} on Tumblr" rel="me" target="_blank">{%- include 'icon-tumblr' -%}</a></li>
+{% endif %}
+
+{% if settings.social_instagram_link != '' %}
+  <li class="instagram"><a href="{{ settings.social_instagram_link }}" title="{{ shop.name }} on Instagram" rel="me" target="_blank">{%- include 'icon-instagram' -%}</a></li>
+{% endif %}
+
+{% if settings.social_snapchat_link != '' %}
+  <li><a href="{{ settings.social_snapchat_link }}" title="{{ shop.name }} on Snapchat" rel="me" target="_blank">{% include 'icon-snapchat' %}</a></li>
+{% endif %}

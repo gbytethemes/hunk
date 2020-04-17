@@ -1,0 +1,99 @@
+<div class="collection-banner-title" style="background-image:url({{ settings.universal_banner_image | img_url: 'master' }});">
+  <div class="container">
+    <h1 class="collection-title title">Contact Us</h1>
+  </div>
+</div><!--.collection-banner-title ends-->
+
+<div class="contact-form-holder">
+  <div class="container">
+    <div class="row">
+      <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12">
+        <h3 class="title">Location</h3>
+        <p>123 Some St. Suite 101 <br>Boca Raton, Fl 33433</p>
+      </div>
+
+      <div class="main-contact-info col-sm-4 hidden-xs">
+        {% include 'down-arrow' %}
+      </div>
+
+      <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12">
+        <h3 class="title">Contact Us</h3>
+        <ul>
+          <li>P: 954-555-5555</li>
+          <li>Email: Email@email.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="begin-form text-center">Want to get in touch with us? Just fill out the form below and we’ll get back to you as soon as possible. <br> This is a demo store. If you want to get in touch with the real Lea & Randy, you contact them here.</p>
+  </div>
+<div class="container">
+{% form 'contact' %}
+
+  {% if form.posted_successfully? %}
+    <p class="text-center form-success">
+      {{ 'contact.form.post_success' | t }}
+    </p>
+  {% endif %}
+
+  {{ form.errors | default_errors }}
+
+  <div class="row contact-form-fields">
+
+    <div class="col-md-6">
+      <label class="hidden" for="ContactFormName">{{ 'contact.form.name' | t }}</label>
+      <input type="text"
+        name="contact[name]"
+        id="ContactFormName"
+        placeholder="{{ 'contact.form.name' | t }}"
+        value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+    </div>
+
+    <div class="col-md-6">
+      <label class="hidden" for="ContactFormEmail">{{ 'contact.form.email' | t }}</label>
+      <input type="email"
+        name="contact[email]"
+        id="ContactFormEmail"
+        placeholder="{{ 'contact.form.email' | t }}"
+        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+        spellcheck="false"
+        autocomplete="off"
+        autocapitalize="off">
+    </div>
+
+    <div class="col-md-12">
+      <label class="hidden" for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
+      <input type="tel"
+        name="contact[phone]"
+        id="ContactFormPhone"
+        placeholder="{{ 'contact.form.phone' | t }}"
+        value="{% if form[phone] %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+        pattern="[0-9\-]*">
+    </div>
+
+    <div class="col-md-12">
+      <label class="hidden" for="ContactFormMessage">{{ 'contact.form.message' | t }}</label>
+      <textarea rows="10"
+        name="contact[body]"
+        id="ContactFormMessage"
+        placeholder="{{ 'contact.form.message' | t }}">
+        {%- if form.body -%}
+          {{- form.body -}}
+        {%- endif -%}
+      </textarea>
+    </div>
+
+    <div class="col-md-12">
+        <input type="submit" class="btn button" value="{{ 'contact.form.send' | t }}">
+    </div>
+  </div><!--.contact-form-fields ends-->
+
+
+{% endform %}
+</div>
+
+<div class="rte">
+  {{ page.content }}
+</div>
+
+</div><!--.contact-form-holder ends-->

@@ -1,0 +1,89 @@
+<!doctype html>
+<html class="no-js supports-no-cookies" lang="{{ shop.locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_accent }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  {%- if settings.favicon != blank -%}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {%- endif -%}
+
+  {%- capture seo_title -%}
+    {{ page_title }}
+    {%- if current_tags -%}
+      {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {%- endif -%}
+    {%- if current_page != 1 -%}
+      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {%- endif -%}
+    {%- assign escaped_page_title = page_title | escape -%}
+    {%- unless escaped_page_title contains shop.name -%}
+      &ndash; {{ shop.name }}
+    {%- endunless -%}
+  {%- endcapture -%}
+  <title>{{ seo_title | strip }}</title>
+
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css' | stylesheet_tag }}
+  {{ '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js' | script_tag }}
+  {{ '//cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css' | stylesheet_tag }}
+  {{ '//cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider-min.js' | script_tag }}
+  {{ '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css' | stylesheet_tag }}
+
+  {% include 'social-meta-tags' %}
+  {% include 'style-tags', layout: 'theme' %}
+  {% include 'css-variables' %}
+  {{ 'layout.theme.scss' | asset_url | stylesheet_tag }}
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', '');
+
+    window.theme = {
+      strings: {
+        addToCart: {{ 'products.product.add_to_cart' | t | json }},
+        soldOut: {{ 'products.product.sold_out' | t | json }},
+        unavailable: {{ 'products.product.unavailable' | t | json }}
+      },
+      moneyFormat: {{ shop.money_format | json }}
+    };
+  </script>
+
+  {% include 'script-tags', layout: 'theme' %}
+
+  {{ content_for_header }}
+
+</head>
+
+<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+  {% section 'header' %}
+
+  <main role="main" id="MainContent">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  {{ '//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js' | script_tag }}
+  {{ 'template.js' | asset_url | script_tag }}
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+</html>

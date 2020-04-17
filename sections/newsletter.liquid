@@ -1,0 +1,182 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Newsletter" section on the Theme Editor.
+
+  Theme Store required settings
+  - Heading: title of the newsletter section
+  - Subheading: description of the newsletter section
+{%- endcomment -%}
+<style>
+  .newsletter-section #Subscribe.btn-{{ section.id }}{
+    color: {{ section.settings.button_text_color }};
+    border-color: {{ section.settings.button_border_color }};
+    background-color: {{ section.settings.button_background_color }};
+  }
+  .newsletter-section #Subscribe.btn-{{ section.id }}:hover{
+    color: {{ section.settings.button_text_color_hover }};
+    border-color: {{ section.settings.button_border_color_hover }};
+    background-color: {{ section.settings.button_background_color_hover }};
+  }
+</style>
+<section class="newsletter-section" style="background-color: {{ section.settings.background_color }};" data-aos="zoom-in-up">
+  <div class="row flex-align">
+
+    {% capture image_layout %}
+        {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | img_url: 'master' }}" alt="">
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+    {% endcapture %}
+
+    {% if section.settings.layout == 'left' %}
+      <div class="newsletter-img col-md-5 col-xs-12">
+          {{ image_layout }}
+      </div>
+    {% endif %}
+
+    <div class="newsletter-info col-md-7 col-xs-12 {% if section.settings.layout == 'left' %}text-left{% else %}text-right{% endif %}" style="color: {{ section.settings.text_color}}; background-image: url('{{ 'discount_tag.png' | asset_img_url: 'master' }}');">
+      {% if section.settings.section_title != blank %}
+        <h1>{{ section.settings.section_title }}</h1>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="newsletter-subheading {% if section.settings.layout == 'right' %}pull-right{% endif %}">
+          {{ section.settings.subheading | escape }}
+        </p>
+      {% endif %}
+
+      <div class="newletter-form">
+        {% form 'customer' %}
+          {{ form.errors | default_errors }}
+          {% if form.posted_successfully? %}
+            <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
+          {% else %}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <input type="email"
+              name="contact[email]"
+              id="Email"
+              value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+              placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+              autocorrect="off"
+              autocapitalize="off">
+            <button type="submit" name="commit" id="Subscribe" class="btn btn-{{ section.id }}">
+              <span>{{ 'general.newsletter_form.submit' | t }}</span>
+            </button>
+          {% endif %}
+        {% endform %}
+      </div>
+
+    </div>
+
+    {% if section.settings.layout == 'right' %}
+      <div class="newsletter-img col-md-5 col-xs-12">
+          {{ image_layout }}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Image alignment",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+       "type": "color",
+       "id": "background_color",
+       "label": "Background color",
+       "default": "#7fc6a4"
+      },
+      {
+       "type": "color",
+       "id": "text_color",
+       "label": "Text color",
+       "default": "#333333"
+     },
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Heading",
+        "default": "Subscribe to our newsletter"
+      },
+      {
+        "type": "textarea",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "A short sentence describing what someone will receive by subscribing"
+      },
+      {
+        "type": "paragraph",
+        "content": "Any customers who sign up will have an account created for them in Shopify. [View customers](/admin/customers?query=&accepts_marketing=1)"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "Button label"
+      },
+      {
+       "type": "color",
+       "id": "button_text_color",
+       "label": "Text",
+       "default": "#000"
+     },
+      {
+       "type": "color",
+       "id": "button_background_color",
+       "label": "Background",
+       "default": "#fff"
+      },
+      {
+       "type": "color",
+       "id": "button_border_color",
+       "label": "Border",
+       "default": "#000"
+      },
+      {
+       "type": "color",
+       "id": "button_text_color_hover",
+       "label": "Text hover",
+       "default": "#fff"
+     },
+      {
+       "type": "color",
+       "id": "button_background_color_hover",
+       "label": "Background hover",
+       "default": "#000"
+      },
+      {
+       "type": "color",
+       "id": "button_border_color_hover",
+       "label": "Border hover",
+       "default": "#000"
+      }
+    ],
+    "presets": [{
+      "name": "Newsletter",
+      "category": "Promotional"
+    }]
+  }
+{% endschema %}

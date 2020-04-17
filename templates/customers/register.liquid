@@ -1,0 +1,76 @@
+<div class="collection-banner-title" style="background-image:url({{ settings.universal_banner_image | img_url: 'master' }});">
+  <div class="container">
+    <h1 class="collection-title title">{{ 'customer.register.title' | t }}</h1>
+  </div>
+  {% include 'down-arrow' %}
+</div><!--.collection-banner-title ends-->
+
+<div class="container">
+  <div class="form-structure">
+    <div class="row">
+
+    {% form 'create_customer' %}
+    <div class="col-xs-12">
+      {{ form.errors | default_errors }}
+    </div>
+
+    <div class="col-xs-12">
+      <label for="FirstName" class="label-hidden">
+        {{ 'customer.register.first_name' | t }}
+      </label>
+      <input type="text"
+        name="customer[first_name]"
+        id="FirstName"
+        placeholder="{{ 'customer.register.first_name' | t }}"
+        autofocus
+        {% if form.first_name %}value="{{ form.first_name }}"{% endif %}>
+    </div>
+
+    <div class="col-xs-12">
+      <label for="LastName" class="label-hidden">
+        {{ 'customer.register.last_name' | t }}
+      </label>
+      <input type="text"
+        name="customer[last_name]"
+        id="LastName"
+        placeholder="{{ 'customer.register.last_name' | t }}"
+        {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+    </div>
+
+    <div class="col-xs-12">
+      <label for="Email" class="label-hidden">
+        {{ 'customer.register.email' | t }}
+      </label>
+      <input type="email"
+        name="customer[email]"
+        id="Email"
+        class="{% if form.errors contains 'email' %}input-error{% endif %}"
+        placeholder="{{ 'customer.register.email' | t }}"
+        value="{% if form.email %}{{ form.email }}{% endif %}"
+        spellcheck="false"
+        autocomplete="off"
+        autocapitalize="off">
+    </div>
+
+    <div class="col-xs-12">
+      <label for="CreatePassword" class="label-hidden">
+        {{ 'customer.register.password' | t }}
+      </label>
+      <input type="password"
+        name="customer[password]"
+        id="CreatePassword"
+        class="{% if form.errors contains 'password' %}input-error{% endif %}"
+        placeholder="{{ 'customer.register.password' | t }}">
+    </div>
+
+    <div class="col-xs-12">
+      <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn button">
+    </div>
+
+    <div class="login-links col-xs-12">
+      {{ 'layout.customer.log_in' | t | customer_login_link | replace: '<a', '<a class="btn"'}}
+    </div>
+    {% endform %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Rich text" section on the Theme Editor.
+
+  Theme Store required settings
+  - Heading: title of the rich text section
+  - Text: description of the rich text section
+{%- endcomment -%}
+<section class="about-info" data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="100"
+     data-aos-offset="150">
+  <div class="container">
+    <div class="row">
+      {%- if section.settings.title != blank -%}
+      <div class="element-hold col-xs-12">
+        {%- if section.settings.title_bg != blank -%}
+        <div class="about-year">{{ section.settings.title_bg }}</div>
+        {%- endif -%}
+        <h2 class="title{% if section.settings.title_bg != blank %} mass-padding {% endif %}{% if section.settings.title_icon == false %} no-icon{% endif %}">{{ section.settings.title | escape }}</h2>
+      </div>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+      <p>
+        {{ section.settings.text }}
+      </p>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a class="btn" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section><!--.about-info ends-->
+
+{% schema %}
+  {
+    "name": "Rich text",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "title_icon",
+        "label": "Title Icon",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Talk about your brand"
+      },
+      {
+        "type": "text",
+        "id": "title_bg",
+        "label": "Background Title Text",
+        "default": "Text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": {
+          "da": "Knapetiket",
+          "de": "Button-Name",
+          "en": "Button label",
+          "es": "Etiqueta de botón",
+          "fi": "Painikkeen merkintä",
+          "fr": "Texte du bouton",
+          "hi": "बटन लेबल",
+          "it": "Etichetta pulsante",
+          "ja": "ボタンラベル",
+          "ko": "버튼 레이블",
+          "ms": "Label butang",
+          "nb": "Knappetikett",
+          "nl": "Knoplabel",
+          "pt-BR": "Etiqueta do botão",
+          "pt-PT": "Etiqueta do botão",
+          "sv": "Knappetikett",
+          "th": "ป้ายกำกับปุ่ม",
+          "zh-CN": "按钮标签",
+          "zh-TW": "按鈕標籤"
+        },
+        "default": "Read More"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": {
+          "da": "Knaplink",
+          "de": "Button-Link",
+          "en": "Button link",
+          "es": "Enlace de la diapositiva",
+          "fi": "Painikkeen linkki",
+          "fr": "Lien du bouton",
+          "hi": "बटन लिंक",
+          "it": "Link slide",
+          "ja": "スライドリンク",
+          "ko": "버튼 링크",
+          "ms": "Pautan butang",
+          "nb": "Kobling for knapp",
+          "nl": "Knoplink",
+          "pt-BR": "Link do slide",
+          "pt-PT": "Ligação do botão",
+          "sv": "Knapplänk",
+          "th": "ลิงก์ของปุ่ม",
+          "zh-CN": "按钮链接",
+          "zh-TW": "按鈕連結"
+        }
+      }
+    ],
+    "presets": [{
+        "name": "Rich text",
+        "category": "Text"
+    }]
+  }
+{% endschema %}

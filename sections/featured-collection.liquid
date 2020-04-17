@@ -1,0 +1,135 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available in the "Featured Collection" section in the theme editor.
+
+  Theme Store required settings
+  - Collection
+
+  Theme Store optional settings
+  - Heading: title of the featured collection section
+{%- endcomment -%}
+<section class="full-collection">
+  <div class="container">
+    {% if section.settings.title != blank %}
+      <h2 class="featured-collection__title title">{{ section.settings.title | escape }}</h2>
+    {% endif %}
+
+    {%- assign collection = collections[section.settings.collection] -%}
+
+
+    <div class="full-collection-products row">
+      {% for product in collection.products limit: 6 %}
+      <div class="full-collection-holder col-md-4 col-xs-12" data-aos="flip-left">
+        <a class="featured-collection-item" href="{{ product.url | within: collection }}">
+            {% if product.featured_image != blank %}
+              <div class="featured-collection__image">
+                <div class="product-img-container">
+                  {% include 'responsive-image' with
+                    image: product.featured_image,
+                    max_width: 480,
+                    max_height: 480
+                  %}
+                </div>
+              </div>
+            {% endif %}
+
+        <p class="product-title title">{{ product.title | escape }}</p>
+
+        <p class="product-category">{{ product.vendor }}</p>
+
+        {% if product.compare_at_price > product.price %}
+
+            {% if product.price_varies %}
+              <div class="on-sale_badge">
+                {%- assign sale_price = product.price | money -%}
+                {{ 'products.product.on_sale' | t }}
+              </div>
+              <p class="product-money">{{ product.price | money }} <span class="strike">{{ product.compare_at_price | money }}</span></p>
+            {% else %}
+              <div class="on-sale_badge">
+                {{ 'products.product.on_sale' | t }}
+              </div><!--.on-sale_badge ends-->
+              <p class="product-money">{{ product.price | money }}</p>
+            {% endif %}
+
+        {% else %}
+          {% if product.price_varies %}
+            {%- assign price = product.price | money -%}
+            <p class="product-money">{{ 'products.product.from_text_html' | t: price: price }}</p>
+          {% else %}
+            <p class="product-money">{{ product.price | money }}</p>
+          {% endif %}
+        {% endif %}
+
+        <span class="btn">VIEW</span>
+
+        </a><!--.featured-collection-item ends-->
+
+
+      </div><!--.full-collection-holder ends-->
+
+      {% else %}
+        {% for i in (1..6) %}
+          <div class="full-collection-holder col-lg-4 col-sm-6 col-xs-12" data-aos="flip-left">
+              <a href="{{ product.url | within: collection }}" class="featured-collection-item">
+                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                <div class="product-img-container">
+                  {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+                </div>
+
+                <p class="product-title title">{{ 'homepage.onboarding.product_title' | t }}</p>
+
+                <p class="product-category">Example vendor</p>
+
+                <p class="product-money">{{ 1999 | money }}</p>
+
+                <span class="btn">VIEW</span>
+              </a>
+          </div><!--.full-collection-holder ends-->
+        {% endfor %}
+      {% endfor %}
+    </div><!--.full-collection-products ends-->
+
+    {% if section.settings.show_view_all != blank %}
+    <div class="view-all-products">
+      <a class="btn" href="{{ collection.url }}">View All</a>
+    </div><!--.view-all-products ends-->
+    {% endif %}
+
+
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Featured collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_view_all",
+        "label": {
+          "en": "Show view all button"
+        },
+        "default": true
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Collection",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}
