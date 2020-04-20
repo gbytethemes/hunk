@@ -641,26 +641,17 @@ symbol.icon:not(.icon--full-color) rect {
 }
 .about-info {
     text-align: center;
-    padding: 180px 0 100px;
+    padding: 100px 0;
     border: 1px solid #eee;
-    background-image: url(banner-bg.png);
+    background-position: center;
+    background-size: cover;
 }
 .about-info h2 {
     position: relative;
-    margin-bottom: 40px
+    margin-bottom: 40px;
+    z-index: 999;
 }
-.about-info h2:before {
-    content: "";
-    position: absolute;
-    top: -100px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100px;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-image: url(stars.png)
-}
+
 .about-info p {
     margin-bottom: 40px
 }
@@ -1349,7 +1340,8 @@ header.header-section .menu-right .account-icon{
 .banner-section {
     padding: 20px 0;
     border: 1px solid #eee;
-    background-image: url(banner-bg.png)
+    background-position: center;
+    background-size: cover;
 }
 .banner-info h1{
   margin-bottom: 20px;
@@ -1460,7 +1452,7 @@ header.header-section .menu-right .account-icon{
     padding: 12px 20px;
     border-radius: 30px;
     border: 2px solid #000;
-    background-color: hsla(0, 0%, 100%, .4)
+    background-color: rgba(255, 255, 255, 0.4);
 }
 .newsletter-section #Subscribe {
     border: 2px solid #000;
@@ -1620,9 +1612,10 @@ header.header-section .menu-right .account-icon{
 }
 footer {
     padding: 50px 0 0;
-    background-image: url(banner-bg.png);
     color: {{ settings.footer_text }};
     background-color: {{ settings.footer_bg }};
+    background-position: center;;
+    background-size: cover;
 }
 .footer-contact ul {
     padding: 0;
@@ -1898,6 +1891,10 @@ footer {
 
 .mobile-menu-icon .hamburger{
   float: right;
+}
+
+.title_icon{
+  text-align: center;
 }
 
 /* Icon 1 */
@@ -2623,10 +2620,6 @@ footer {
   font-size: 14px;
 }
 
-.checkout-btn{
-  background-color: {{ settings.theme_color }};
-}
-
 #MainContent{
   overflow: hidden;
 }
@@ -2840,9 +2833,9 @@ footer {
   height: 110px;
   font-size: 180px;
   font-weight: 600;
-  color: rgba(242, 223, 177, .5);
-  z-index: -1;
+  z-index: 1;
   line-height: 80px;
+  opacity: .4;
 }
 
 .about-section-three .about-info .about-year{

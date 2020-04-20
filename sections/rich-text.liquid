@@ -6,22 +6,59 @@
   - Heading: title of the rich text section
   - Text: description of the rich text section
 {%- endcomment -%}
-<section class="about-info" data-aos="fade-zoom-in"
+
+{% capture image_bg %}
+  {%- if section.settings.image_bg != blank -%}
+  {{ section.settings.image_bg | img_url: 'master'}}
+  {%- endif -%}
+{% endcapture %}
+
+<style>
+  .about-info-{{ section.id }}{
+    color: {{ section.settings.text_color }};
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  .about-info-{{ section.id }} .about-year{
+    color: {{ section.settings.bg_title_color }};
+  }
+
+  .about-info-{{ section.id }} .btn{
+    color: {{ section.settings.btn_text_color }};
+    background-color: {{ section.settings.btn_bg_color }};
+    border-color: {{ section.settings.btn_border_color }};
+  }
+
+  .about-info-{{ section.id }} .btn:hover{
+    color: {{ section.settings.btn_text_color_hover }};
+    background-color: {{ section.settings.btn_bg_color_hover }};
+    border-color: {{ section.settings.btn_border_color_hover }};
+  }
+
+</style>
+
+<section class="about-info about-info-{{ section.id }}" style=" background-image: url({{ image_bg }});" data-aos="fade-zoom-in"
      data-aos-easing="ease-in-back"
      data-aos-delay="100"
      data-aos-offset="150">
   <div class="container">
     <div class="row">
+      {%- if section.settings.title_icon_image != blank  -%}
+        <div class="title_icon">
+          <img src="{{ section.settings.title_icon_image | img_url: 'master'}}" alt="">
+        </div><!--.title_icon ends-->
+      {%- endif -%}
+
       {%- if section.settings.title != blank -%}
       <div class="element-hold col-xs-12">
         {%- if section.settings.title_bg != blank -%}
         <div class="about-year">{{ section.settings.title_bg }}</div>
         {%- endif -%}
-        <h2 class="title{% if section.settings.title_bg != blank %} mass-padding {% endif %}{% if section.settings.title_icon == false %} no-icon{% endif %}">{{ section.settings.title | escape }}</h2>
+        <h2 class="title{% if section.settings.title_bg != blank %} mass-padding {% endif %}" style="color: {{ section.settings.text_color }};">{{ section.settings.title | escape }}</h2>
       </div>
       {%- endif -%}
 
-      {%- if section.settings.text != blank -%} 
+      {%- if section.settings.text != blank -%}
         {{ section.settings.text }}
       {%- endif -%}
 
@@ -37,21 +74,26 @@
     "name": "Rich text",
     "settings": [
       {
-        "type": "checkbox",
-        "id": "title_icon",
-        "label": "Title Icon",
-        "default": false
+        "type": "image_picker",
+        "id": "title_icon_image",
+        "label": "Title icon image"
       },
       {
         "type": "text",
         "id": "title",
-        "label": "Heading",
+        "label": "Title",
         "default": "Talk about your brand"
       },
       {
         "type": "text",
         "id": "title_bg",
-        "label": "Background Title Text"
+        "label": "Background Title"
+      },
+      {
+        "type": "color",
+        "id": "bg_title_color",
+        "label": "Background Title Color",
+        "default": "#7fc6a4"
       },
       {
         "type": "richtext",
@@ -109,6 +151,59 @@
           "zh-CN": "按钮链接",
           "zh-TW": "按鈕連結"
         }
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "btn_text_color",
+        "label": "Button text",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "btn_text_color_hover",
+        "label": "Button text Hover",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "btn_bg_color",
+        "label": "Button Background",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "btn_bg_color_hover",
+        "label": "Button Background Hover",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "btn_border_color",
+        "label": "Button Border",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "btn_border_color_hover",
+        "label": "Button Border Hover",
+        "default": "#000"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_bg",
+        "label": "Background Image"
       }
     ],
     "presets": [{

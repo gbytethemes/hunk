@@ -1,25 +1,27 @@
 {
-"current": {
-    "universal_banner_image": "shopify:\/\/shop_images\/collections_list_bg.png",
+  "current": {
+    "float_header": true,
+    "universal_banner_image": "shopify:\/\/shop_images\/collections_list_bg_906f2f79-f20d-4b7e-8d4f-0474f0e1a187.png",
+    "body_bg_color": "#fff",
     "theme_color": "#7fc6a4",
     "title_headings": "#333333",
     "body_text": "#333333",
     "text_links": "#428bca",
     "text_links_hover": "#000",
     "bar_text": "#444444",
-    "header_logo": "#333333",
-    "header_menu": "#333333",
-    "header_icons": "#333333",
-    "header_background": "#fff",
-    "header_border_lines": "#eee",
+    "header_logo": "#ffffff",
+    "header_menu": "#ffffff",
+    "header_icons": "#ffffff",
+    "header_background": "rgba(0,0,0,0)",
+    "header_border_lines": "rgba(0,0,0,0)",
     "default_button_text": "#000",
-    "default_button_text_hover": "#fff",
+    "default_button_text_hover": "#ffffff",
     "default_button_background": "rgba(0,0,0,0)",
     "default_button_background_hover": "#000",
     "default_button_border": "#000",
     "default_button_border_hover": "#000",
     "slider_overlay": "#000000",
-    "slider_header_title": "#fff",
+    "slider_header_title": "#ffffff",
     "slider_header_description": "#fff",
     "slider_button_text": "#ffffff",
     "slider_button_text_hover": "#444444",
@@ -39,12 +41,16 @@
     "sale_tag_border": "#e6d19d",
     "social_icon": "#444444",
     "social_icon_hover": "#7fc6a4",
+    "footer_bg": "#fff",
+    "footer_text": "#444",
     "font_logo": "pacifico_n4",
     "font_size_font_logo": 48,
     "font_menu": "pacifico_n4",
     "font_size_font_menu": 18,
     "font_heading": "pacifico_n4",
     "font_size_font_heading": 32,
+    "font_body_two": "quicksand_n4",
+    "font_size_body_two": 16,
     "font_button": "quicksand_n4",
     "font_size_font_button": 14,
     "font_product_title": "pacifico_n4",
@@ -121,7 +127,8 @@
           "footer_linklist_third": "terms",
           "right_title": "Our Mission",
           "footer_text": "Our soul purpose is to provide our customers with the best quality of clothing for an affordable price! A happy customer is the most rewarding feeling which is why we offer 15 day full refund if you are not satisfied. Please read our POLICIES for more information!",
-          "show_payment_icons": true
+          "show_payment_icons": true,
+          "image_bg": "shopify:\/\/shop_images\/banner-bg.png"
         }
       },
       "1573350439619": {
@@ -194,12 +201,22 @@
       "1585857610547": {
         "type": "rich-text",
         "settings": {
-          "title_icon": true,
+          "title_icon_image": "shopify:\/\/shop_images\/stars.png",
           "title": "At A Glance",
           "title_bg": "",
+          "bg_title_color": "#7fc6a4",
           "text": "<p>Our&nbsp;mission is to provide quality products at an affordable price. All our clothes and accessories are ethically sourced and created in the USA, with wrinkle-free, breathable, 100% cotton fabric, and well-crafted details.&nbsp;<\/p>",
           "button_label": "Read More",
-          "button_link": "shopify:\/\/pages\/about"
+          "button_link": "shopify:\/\/pages\/about",
+          "text_color": "#444444",
+          "bg_color": "rgba(0,0,0,0)",
+          "btn_text_color": "#444444",
+          "btn_text_color_hover": "#ffffff",
+          "btn_bg_color": "rgba(0,0,0,0)",
+          "btn_bg_color_hover": "#000000",
+          "btn_border_color": "#444444",
+          "btn_border_color_hover": "#000000",
+          "image_bg": "shopify:\/\/shop_images\/banner-bg.png"
         }
       },
       "1585860482161": {
@@ -210,7 +227,16 @@
           "title": "25% Off All Jeans!",
           "text": "<p>For a limited time all jeans are 25% off! Hurry before this incredible deal ends!&nbsp;<\/p>",
           "button_label": "Button label",
-          "button_link": ""
+          "button_link": "",
+          "text_color": "#444444",
+          "bg_color": "rgba(0,0,0,0)",
+          "btn_text_color": "#444444",
+          "btn_text_color_hover": "#fff",
+          "btn_bg_color": "rgba(0,0,0,0)",
+          "btn_bg_color_hover": "#000",
+          "btn_border_color": "#444444",
+          "btn_border_color_hover": "#000",
+          "image_bg": "shopify:\/\/shop_images\/banner-bg.png"
         }
       },
       "1586367425953": {
@@ -329,7 +355,16 @@
           "title": "Three Brothers With One Big Idea",
           "text": "<p>Founded on the principle that any man can have a sense of style - you don't have to be born with it. Three brothers located in Brooklyn who have a passion for fashion and put their heads together and founded Hunk in 2001. Since then they have been delivering fashion-forward options for men of all sizes and ages. Sourced ethically and created in the USA, this small business puts the consumer first. Hunk has everything you are looking for and more!<\/p>",
           "button_label": "",
-          "button_link": ""
+          "button_link": "",
+          "text_color": "#444444",
+          "bg_color": "#fff",
+          "btn_text_color": "#444444",
+          "btn_text_color_hover": "#fff",
+          "btn_bg_color": "#444444",
+          "btn_bg_color_hover": "#000",
+          "btn_border_color": "#444444",
+          "btn_border_color_hover": "#000",
+          "image_bg": ""
         }
       },
       "image-bar": {
@@ -376,12 +411,22 @@
       "rich-text": {
         "type": "rich-text",
         "settings": {
-          "title_icon": false,
+          "title_icon_image": "",
           "title": "It All Started Back In 2001",
           "title_bg": "2001",
+          "bg_title_color": "#7fc6a4",
           "text": "<p>Hunk will create custom fashion dreams from scratch. Our team of designers and master seamstress will design unique fashion pieces for all clients. Just reach out to us and one of our Hunk-y representatives will be in touch. We offer a variety of fabrics, textures and sizing. At Hunk we make your fashion needs, our needs.<\/p>\n<p><\/p>\n<p><em>&ldquo;From sketch to creation Hunk meets all your fashion needs at an affordable price.&rdquo;<\/em><\/p>\n<p><i>- Gianeo Brothers HUNK EST. 2001<\/i><\/p>",
           "button_label": "",
-          "button_link": ""
+          "button_link": "",
+          "text_color": "#444444",
+          "bg_color": "#fff",
+          "btn_text_color": "#444444",
+          "btn_text_color_hover": "#fff",
+          "btn_bg_color": "#444444",
+          "btn_bg_color_hover": "#000",
+          "btn_border_color": "#444444",
+          "btn_border_color_hover": "#000",
+          "image_bg": ""
         }
       }
     },

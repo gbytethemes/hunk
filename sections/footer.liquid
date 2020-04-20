@@ -38,8 +38,16 @@
 
 </section>
 {% endif %}
-<footer data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom"> 
+
+
+{% capture image_bg %}
+  {%- if section.settings.image_bg != blank -%}
+  {{ section.settings.image_bg | img_url: 'master'}}
+  {%- endif -%}
+{% endcapture %}
+
+<footer style="background-image: url({{ image_bg }}); background-color: {{ section.settings.about_info_bg_color}};" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom">
   <div class="container">
     <div class="row">
 
@@ -269,6 +277,11 @@
         "id": "show_payment_icons",
         "label": "Show payment icons",
         "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "image_bg",
+        "label": "Background Image"
       }
     ]
   }
