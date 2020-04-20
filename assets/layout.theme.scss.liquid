@@ -705,15 +705,24 @@ symbol.icon:not(.icon--full-color) rect {
     background-repeat: no-repeat;
     background-size: cover
 }
+.banner-padding{
+  padding: 200px 0 100px;
+}
 .collection-banner-title .title-min {
+  position: relative;
     font-size: 21px;
-    font-weight: 600
+    font-weight: 600;
+    color: {{ settings.slider_header_description }};
+    z-index: 9999;
 }
 .collection-banner-title .collection-title {
+    position: relative;
     padding: 5px 0;
     margin: 0;
     font-size: 55px;
     text-transform: capitalize;
+    color: {{ settings.slider_header_title }};
+    z-index: 9999;
 }
 .main-collection .title {
     padding: 20px 0;
@@ -1074,7 +1083,7 @@ symbol.icon:not(.icon--full-color) rect {
     width: 80%;
     margin: auto;
     z-index: 999;
-    overflow: hidden
+    overflow: hidden;
 }
 .slider-info h2 {
     color: {{ settings.slider_header_title }};
@@ -1180,17 +1189,10 @@ a:hover {
 .header-holder{
   position: relative;
 }
-.template-index header.header-section {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 99999;
-    padding: 30px 0;
-    background-color: transparent;
-    border: none;
-}
+
 header {
     position: relative;
+    top: 0;
     padding: 30px 0;
     background-color: {{ settings.header_background }};
     border-color: {{ settings.header_border_lines }};
@@ -1198,8 +1200,10 @@ header {
     border-width: 1px;
     border-left: none;
     border-right: none;
-    border
+    width: 100%;
+    z-index: 99999;
 }
+
 header .main-logo{
   -webkit-transition: all .3s ease-in-out;
   -moz-transition: all .3s ease-in-out;
@@ -1279,42 +1283,42 @@ header .main-menu nav ul {
     padding: 0 0 0 10px;
     fill: {{ settings.header_icons }};
 }
-.template-index header.header-section .main-logo *,
-.template-index header.header-section .main-logo a,
-.template-index header.header-section .main-menu *,
-.template-index header.header-section .main-menu a,
-.template-index header.header-section .menu-right *,
-.template-index header.header-section .menu-right a {
-    color: #fff;
-}
-.template-index header.header-section .main-menu ul li a svg{
-    fill: #fff;
+
+header.header-section .main-menu ul li a svg{
+    fill: {{ settings.header_icons }};
     width: 8px;
 }
-.template-index header.header-section .main-menu ul li ul li a {
+header.header-section .main-menu ul li ul li a {
   font-size: 14px;
     color: #000;
 }
-.template-index header.header-section .main-menu ul li ul li a:hover {
+header.header-section .main-menu ul li ul li a:hover {
   color: #fff;
   background-color: #000;
 }
-.template-index header.header-section .main-menu ul li ul{
+header.header-section .main-menu ul li ul{
   opacity: 0;
   -webkit-transition: all .3s ease-in-out;
   -moz-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
-.template-index header.header-section .main-menu ul li:hover ul{
+header.header-section .main-menu ul li:hover ul{
   opacity: 1;
 }
-.template-index header.header-section .menu-right .account-icon{
-    fill: #fff;
+header.header-section .menu-right .account-icon{
+    fill: {{ settings.header_icons }};
 }
-.template-index header.header-section {
-    border-bottom: 1px solid rgba(237, 237, 237, 0.2);
+.relative-header{
+  position: relative !important;
 }
+
+@media(min-width: 991px){
+  .absolute-header{
+    position: absolute !important;
+  }
+}
+
 .btn {
     font-family: {{ settings.font_button.family }};
     color: {{ settings.default_button_text }};

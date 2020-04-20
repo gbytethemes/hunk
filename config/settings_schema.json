@@ -11,6 +11,12 @@
     "name": "Header",
     "settings": [
       {
+        "type": "checkbox",
+        "id": "float_header",
+        "label": "Overlap Header",
+        "default": true
+      },
+      {
         "type": "image_picker",
         "id": "universal_banner_image",
         "label": "Banner Image"
@@ -78,19 +84,19 @@
         "type": "color",
         "id": "header_logo",
         "label": "Logo",
-        "default": "#333333"
+        "default": "#444444"
       },
       {
         "type": "color",
         "id": "header_menu",
-        "label": "Logo",
-        "default": "#333333"
+        "label": "Main Menu",
+        "default": "#444444"
       },
       {
         "type": "color",
         "id": "header_icons",
-        "label": "Logo",
-        "default": "#333333"
+        "label": "Menu Icon",
+        "default": "#444444"
       },
       {
         "type": "color",
@@ -158,13 +164,15 @@
         "type": "color",
         "id": "slider_header_title",
         "label": "Header Title",
-        "default": "#ffffff"
+        "default": "#ffffff",
+        "info": "(Also affects site wide banner titles)"
       },
       {
         "type": "color",
         "id": "slider_header_description",
         "label": "Description",
-        "default": "#ffffff"
+        "default": "#ffffff",
+        "info": "(Also affects site wide title descriptions)"
       },
       {
         "type": "color",
