@@ -1,38 +1,17 @@
-<div class="collection-banner-title" style="background-image:url({{ settings.universal_banner_image | img_url: 'master' }});">
+{% include 'site-wide-banner' %}
   <div class="container">
-    <h1 class="collection-title title">Contact Us</h1>
+    <h1 class="collection-title title">{{ page.title }}</h1>
   </div>
 </div><!--.collection-banner-title ends-->
 
 <div class="contact-form-holder">
-  <div class="container">
-    <div class="row">
-      <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12">
-        <h3 class="title">Location</h3>
-        <p>123 Some St. Suite 101 <br>Boca Raton, Fl 33433</p>
-      </div>
-
-      <div class="main-contact-info col-sm-4 hidden-xs">
-        {% include 'down-arrow' %}
-      </div>
-
-      <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12">
-        <h3 class="title">Contact Us</h3>
-        <ul>
-          <li>P: 954-555-5555</li>
-          <li>Email: Email@email.com</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="begin-form text-center">Want to get in touch with us? Just fill out the form below and we’ll get back to you as soon as possible. <br> This is a demo store. If you want to get in touch with the real Lea & Randy, you contact them here.</p>
-  </div>
+  {% section 'contact-page-info' %}
 <div class="container">
 {% form 'contact' %}
 
   {% if form.posted_successfully? %}
     <p class="text-center form-success">
-      {{ 'contact.form.post_success' | t }}
+      {{ 'contact.form.post_success' | t }} 
     </p>
   {% endif %}
 

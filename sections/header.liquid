@@ -16,7 +16,7 @@
     <label for="Search-{{ section.id }}" class="label-hidden">
       {{ 'general.search.placeholder' | t }}
     </label>
-    <a class="btn search-close">Close</a>
+    <a class="btn search-close">Close</a> 
     <input type="search"
       name="q"
       id="Search-{{ section.id }}"
@@ -65,7 +65,7 @@
 
   <div class="header-holder">
 
-  <header class="header-section" role="banner">
+  <header class="header-section {% if section.settings.float_header == true %}relative-header{% endif %}" role="banner">
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-xs-6 main-logo">
@@ -278,6 +278,12 @@
       {
         "type": "header",
         "content": "Header"
+      },
+      {
+        "type": "checkbox",
+        "id": "float_header",
+        "label": "Overlap Header",
+        "default": true
       },
       {
         "type": "image_picker",

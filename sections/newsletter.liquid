@@ -39,7 +39,7 @@
       {% if section.settings.section_title != blank %}
         <h1>{{ section.settings.section_title }}</h1>
       {% endif %}
-      {% if section.settings.subheading != blank %}
+      {% if section.settings.subheading != blank %} 
         <p class="newsletter-subheading {% if section.settings.layout == 'right' %}pull-right{% endif %}">
           {{ section.settings.subheading | escape }}
         </p>
@@ -107,7 +107,7 @@
        "type": "color",
        "id": "background_color",
        "label": "Background color",
-       "default": "#7fc6a4"
+       "default": "#EEEEEE"
       },
       {
        "type": "color",

@@ -966,6 +966,10 @@ symbol.icon:not(.icon--full-color) rect {
   margin: 0;
 }
 
+.blog-list-section .featured-collection-item svg{
+  background-color: #f9fafb;
+}
+
 .collection-top-product {
     padding: 80px 0;
 }
@@ -1613,7 +1617,8 @@ header .main-menu nav ul {
 footer {
     padding: 50px 0 0;
     background-image: url(banner-bg.png);
-    color: {{ settings.body_text }};
+    color: {{ settings.footer_text }};
+    background-color: {{ settings.footer_bg }};
 }
 .footer-contact ul {
     padding: 0;
@@ -1643,7 +1648,7 @@ footer {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 800;
-    color: {{ settings.title_headings }};
+    color: {{ settings.footer_text }};
     font-family: {{ settings.font_body_two.family }};
 }
 .footer-link ul {
@@ -1653,7 +1658,7 @@ footer {
     list-style: none;
 }
 .footer-link ul li a {
-    color: {{ settings.body_text }};
+    color: {{ settings.footer_text }};
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
@@ -1667,7 +1672,7 @@ footer {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 800;
-    color: {{ settings.title_headings }};
+    color: {{ settings.footer_text }};
     font-family: {{ settings.font_body_two.family }};
 }
 .copyright-section {
@@ -1990,6 +1995,10 @@ footer {
 .blog-post{
   padding-top: 0;
   padding-bottom: 0;
+}
+
+.blog-excerpt{
+  padding: 20px 0;
 }
 
 .blog-img{
@@ -2699,6 +2708,10 @@ footer {
   position: relative;
 }
 
+.main-contact-info a{
+  color: #000;
+}
+
 .cinfo-bg{
   background-color: {{ settings.theme_color }};
   border-radius: 10px;
@@ -2795,6 +2808,11 @@ footer {
   padding: 100px 0;
 }
 
+.about-info .title.mass-padding{
+  padding: 50px 0;
+  margin: 0;
+}
+
 .about-section-three .about-info{
   padding: 0;
 }
@@ -2815,11 +2833,17 @@ footer {
   left: 0;
   right: 0;
   margin: auto;
+  height: 110px;
   font-size: 180px;
   font-weight: 600;
   color: rgba(242, 223, 177, .5);
   z-index: -1;
-  line-height: 1.6em;
+  line-height: 80px;
+}
+
+.about-section-three .about-info .about-year{
+  height: 160px;
+  line-height: 110px;
 }
 
 .shopping-cart-grid{
@@ -3460,6 +3484,7 @@ footer {
   }
   .about-year{
     font-size: 110px;
+    line-height: 150px;
   }
   .about-section-three .title.mass-padding {
     padding: 50px 0;

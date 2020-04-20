@@ -18,7 +18,7 @@
       <!--Put image-with-text-image block into a variable-->
       {% capture image_layout %}
 
-          {% if section.settings.image != blank %}
+          {% if section.settings.image != blank %} 
             {% include 'responsive-image' with
               image: section.settings.image,
               max_width: 545,
@@ -59,7 +59,6 @@
       {% if section.settings.layout == 'right' %}
         <div class="banner-img col-md-6 col-xs-12">
           {{ image_layout }}
-        </div>
       {% endif %}
 
     </div>

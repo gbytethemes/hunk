@@ -39,7 +39,7 @@
 </section>
 {% endif %}
 <footer data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
+     data-aos-anchor-placement="center-bottom"> 
   <div class="container">
     <div class="row">
 
@@ -143,11 +143,11 @@
       <div class="col-md-3 col-xs-12">
         <div class="mission-statement">
           {% if section.settings.right_title != blank %}
-            <h5>Our Mission</h5>
+            <h5>{{ section.settings.right_title }}</h5>
           {% endif %}
           {% if section.settings.footer_text != blank %}
             <p>
-              Our soul person is to provide our customers with the best quality of clothing for an affordable price! A happy customer is the  most rewarding feeling which is why we offer 15 day full refund if you are not satisfied. Please read our POLICIES for more information!
+              {{ section.settings.footer_text }}
             </p>
           {% endif %}
         </div><!--.mission-statement ends-->
@@ -261,7 +261,8 @@
       {
         "type": "textarea",
         "id": "footer_text",
-        "label": "Right Text"
+        "label": "Right Text",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum cursus interdum. Sed erat est, sollicitudin eu elit sed, fringilla faucibus mi. Sed aliquam purus sed pretium lacinia. Sed scelerisque odio eu nisi pellentesque eleifend."
       },
       {
         "type": "checkbox",

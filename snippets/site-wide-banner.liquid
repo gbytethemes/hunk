@@ -1,0 +1,5 @@
+{%- if settings.universal_banner_image != blank -%}
+  <div class="collection-banner-title" style="background-image:url({{ settings.universal_banner_image | img_url: 'master' }});">
+{%- else -%}
+  <div class="collection-banner-title o" style="background-image: none; background-color: #eee;">
+{%- endif -%}

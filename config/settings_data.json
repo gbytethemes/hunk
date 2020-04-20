@@ -1,10 +1,63 @@
 {
   "current": {
-    "color_accent": "#c4cdd5",
-    "color_body_text": "#161d25",
-    "color_main_bg": "#fff",
-    "font_heading": "helvetica_n4",
-    "font_body": "helvetica_n4",
+    "universal_banner_image": "shopify:\/\/shop_images\/collections_list_bg.png",
+    "body_bg_color": "#fff",
+    "theme_color": "#7fc6a4",
+    "title_headings": "#333333",
+    "body_text": "#333333",
+    "text_links": "#428bca",
+    "text_links_hover": "#000000",
+    "bar_text": "#000000",
+    "header_logo": "#333333",
+    "header_menu": "#333333",
+    "header_icons": "#333333",
+    "header_background": "#fff",
+    "header_border_lines": "#eee",
+    "default_button_text": "#000000",
+    "default_button_text_hover": "#ffffff",
+    "default_button_background": "rgba(0,0,0,0)",
+    "default_button_background_hover": "#000000",
+    "default_button_border": "#000000",
+    "default_button_border_hover": "#000000",
+    "slider_overlay": "#000000",
+    "slider_header_title": "#ffffff",
+    "slider_header_description": "#ffffff",
+    "slider_button_text": "#ffffff",
+    "slider_button_text_hover": "#ffffff",
+    "slider_button_background": "rgba(0,0,0,0)",
+    "slider_button_background_hover": "#000000",
+    "slider_button_border": "#ffffff",
+    "slider_button_border_hover": "#070707",
+    "dropdown_arrow": "#444444",
+    "color_titles": "#333333",
+    "product_background": "#ffffff",
+    "product_background_hover": "#7fc6a4",
+    "form_fields": "#444444",
+    "form_fields_border": "#eeeeee",
+    "form_fields_background": "#ffffff",
+    "sale_tag_text": "#404040",
+    "sale_tag_bg": "#f2dfb1",
+    "sale_tag_border": "#e6d19d",
+    "social_icon": "#444444",
+    "social_icon_hover": "#000000",
+    "footer_bg": "#fff",
+    "footer_text": "#444",
+    "font_logo": "pacifico_n4",
+    "font_size_font_logo": 48,
+    "font_menu": "pacifico_n4",
+    "font_size_font_menu": 16,
+    "font_heading": "pacifico_n4",
+    "font_size_font_heading": 32,
+    "font_body_two": "quicksand_n4",
+    "font_size_body_two": 16,
+    "font_button": "quicksand_n4",
+    "font_size_font_button": 14,
+    "font_product_title": "pacifico_n4",
+    "font_size_product_title": 24,
+    "font_product_price": "quicksand_n4",
+    "font_size_product_price": 14,
+    "font_sale": "pacifico_n4",
+    "font_size_font_sale": 14,
     "share_image": "",
     "social_sharing_blog": true,
     "share_facebook": true,
@@ -34,6 +87,10 @@
     "checkout_accent_color": "#197bbd",
     "checkout_button_color": "#197bbd",
     "checkout_error_color": "#e32c2b",
+    "color_accent": "#c4cdd5",
+    "color_body_text": "#161d25",
+    "color_main_bg": "#fff",
+    "font_body": "helvetica_n4",
     "sections": {
       "header": {
         "type": "header",
@@ -43,6 +100,7 @@
           "social_media_links": true,
           "announcement_bar_text": "Free Shipping on all orders $75+",
           "announcement_bar_link": "",
+          "float_header": true,
           "logo": "",
           "logo_max_width": 450,
           "menu": "main-menu"
@@ -55,7 +113,14 @@
           "instagram_client_id": "396567693.1677ed0.806dbfec8151490a83de548e6439e2c1",
           "title": "Follow Us to Keep Up With Trends & Sales!",
           "instagram_count": 1,
-          "footer_linklist": "footer",
+          "image_logo": "shopify:\/\/shop_images\/logo-dark.png",
+          "phone_number": "999-555-5555",
+          "email": "example@example.com",
+          "footer_linklist": "category",
+          "footer_linklist_second": "main-menu",
+          "footer_linklist_third": "terms",
+          "right_title": "Our Mission",
+          "footer_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum cursus interdum. Sed erat est, sollicitudin eu elit sed, fringilla faucibus mi. Sed aliquam purus sed pretium lacinia. Sed scelerisque odio eu nisi pellentesque eleifend.",
           "show_payment_icons": true
         }
       },
@@ -68,7 +133,13 @@
           "text_color": "#333333",
           "section_title": "Who Doesn’t Love  <br>Saving Money?",
           "subheading": "Sign up for our weekly promo emails to stay up to date with our latest products!\nAlso, to say thank you our first email to you will be 40% off your first purchase!",
-          "button_label": "Button label"
+          "button_label": "Button label",
+          "button_text_color": "#000",
+          "button_background_color": "#fff",
+          "button_border_color": "#000",
+          "button_text_color_hover": "#fff",
+          "button_background_color_hover": "#000",
+          "button_border_color_hover": "#000"
         }
       },
       "1585788680826": {
@@ -123,7 +194,9 @@
       "1585857610547": {
         "type": "rich-text",
         "settings": {
+          "title_icon": false,
           "title": "At A Glance",
+          "title_bg": "",
           "text": "<p>Our soul purpose is to provide quality products at an affordable price. All our products are made in the USA, with wrinkle-free, breathable, 100% cotton fabric, and&nbsp; well-crafted details.&nbsp;<\/p>",
           "button_label": "Read More",
           "button_link": "shopify:\/\/pages\/about"
@@ -232,6 +305,69 @@
           "title": "Featured Collection",
           "collection": "all",
           "show_view_all": true
+        }
+      },
+      "image-with-text": {
+        "type": "image-with-text",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/about1.png",
+          "layout": "left",
+          "title": "Image with text",
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "button_label": "Button label",
+          "button_link": ""
+        }
+      },
+      "image-bar": {
+        "type": "image-bar",
+        "blocks": {
+          "1587339196780": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/about4.png",
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          },
+          "1587339208735": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/about3.png",
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          },
+          "1587339215539": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/about2.png",
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "1587339196780",
+          "1587339208735",
+          "1587339215539"
+        ],
+        "settings": {
+          "section_height": "small",
+          "hero_layout": "full_width"
+        }
+      },
+      "rich-text": {
+        "type": "rich-text",
+        "settings": {
+          "title_icon": false,
+          "title": "Talk about your brand",
+          "title_bg": "2001",
+          "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+          "button_label": "Read More",
+          "button_link": ""
         }
       }
     },

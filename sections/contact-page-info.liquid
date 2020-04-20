@@ -1,24 +1,38 @@
 <div class="container">
   <div class="row">
     <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12">
-      <h3 class="title">Location</h3>
-      <p>123 Some St. Suite 101 <br>Boca Raton, Fl 33433</p>
+      {%- if section.settings.location != blank -%}
+        <h3 class="title">{{ section.settings.location }}</h3>
+      {%- endif -%}
+
+      {%- if section.settings.address != blank -%}
+        <p>{{ section.settings.address }}</p>
+      {%- endif -%}
     </div>
 
-    <div class="main-contact-info col-sm-4 hidden-xs">
+    <div class="main-contact-info col-sm-4 hidden-xs"> 
       {% include 'down-arrow' %}
     </div>
 
     <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12">
-      <h3 class="title">Contact Us</h3>
+      {%- if section.settings.phone_number_title != blank -%}
+        <h3 class="title">{{ section.settings.phone_number_title }}</h3>
+      {%- endif -%}
       <ul>
-        <li>P: 954-555-5555</li>
-        <li>Email: Email@email.com</li>
+        {%- if section.settings.phone_number != blank -%}
+        <li>P: <a href="tel: {{ section.settings.phone_number }}">{{ section.settings.phone_number }}</a></li>
+        {%- endif -%}
+
+        {%- if section.settings.email_address != blank -%}
+        <li>Email: <a href="mailto: {{ section.settings.email_address }}">{{ section.settings.email_address }}</a></li>
+        {%- endif -%}
       </ul>
     </div>
   </div>
 
-  <p class="begin-form text-center">Want to get in touch with us? Just fill out the form below and we’ll get back to you as soon as possible. <br> This is a demo store. If you want to get in touch with the real Lea & Randy, you contact them here.</p>
+  {%- if section.settings.welcometext != blank -%}
+  <p class="begin-form text-center">{{ section.settings.welcometext }}</p>
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -28,33 +42,39 @@
       {
         "type": "text",
         "id": "location",
-        "label": "Location Heading",
-        "default": "Title"
+        "label": "Heading 1",
+        "default": "Location"
       },
       {
         "type": "text",
         "id": "address",
-        "label": "Address"
+        "label": "Address",
+        "default": "111 Example St, Example Ex 33333"
+      },
+      {
+        "type": "text",
+        "id": "phone_number_title",
+        "label": "Heading 2",
+        "default": "Contact us"
       },
       {
         "type": "text",
         "id": "phone_number",
-        "label": "Contact Info",
-        "default": "Text"
+        "label": "Phone number",
+        "default": "555-555-5555"
+      },
+      {
+        "type": "text",
+        "id": "email_address",
+        "label": "Email address",
+        "default": "example@example.com"
       },
       {
         "type": "textarea",
         "id": "welcometext",
-        "label": "Welcome Message",
-        "default": "<p>Want to get in touch with us? Just fill out the form below and we’ll get back to you as soon as possible.
-This is a demo store. If you want to get in touch with the real Lea & Randy, you contact them here.</p>"
+        "label": "Welcome message",
+        "default": "Want to get in touch with us? Just fill out the form below and we’ll get back to you as soon as possible."
       }
     ]
-    "blocks": [{
-      "type":
-      "settings": [{
-        "label": ""
-      }]
-    }]
   }
 {% endschema %}
