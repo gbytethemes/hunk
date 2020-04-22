@@ -46,7 +46,16 @@
   {%- endif -%}
 {% endcapture %}
 
-<footer style="background-image: url({{ image_bg }}); background-color: {{ section.settings.about_info_bg_color}};" data-aos="fade-up"
+<style>
+  .footer-section{
+    border: 1px solid {{ section.settings.section_border_color }};
+    {%- if section.settings.section_border  == false -%}
+    border: none;
+    {%- endif -%}
+  }
+</style>
+
+<footer class="footer-section" style="background-image: url({{ image_bg }}); background-color: {{ section.settings.about_info_bg_color}};" data-aos="fade-up"
      data-aos-anchor-placement="center-bottom">
   <div class="container">
     <div class="row">
@@ -76,6 +85,15 @@
                 {% endif %}
               </ul>
             </div><!--.footer-contact ends-->
+
+<style type="text/css">
+  footer .social-media-icons a{
+      color:{{ section.settings.social_icon }};
+  }
+  footer .social-media-icons a:hover{
+      color:{{ section.settings.social_icon_hover }};
+  }
+</style>
 
             <div class="social-media-icons">
               {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
@@ -226,6 +244,18 @@
         "default": 1
       },
       {
+        "type": "checkbox",
+        "id": "section_border",
+        "label": "Section Border",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "section_border_color",
+        "label": "Border color",
+        "default": "#eeeeee"
+      },
+      {
         "type": "image_picker",
         "id": "image_logo",
         "label": "Logo Image"
@@ -277,6 +307,18 @@
         "id": "show_payment_icons",
         "label": "Show payment icons",
         "default": false
+      },
+      {
+        "type": "color",
+        "id": "social_icon",
+        "label": "Icon",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "social_icon_hover",
+        "label": "Hover",
+        "default": "#000000"
       },
       {
         "type": "image_picker",

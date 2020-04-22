@@ -8,6 +8,18 @@
   Theme Store optional settings
   - Heading: title of the featured collection section
 {%- endcomment -%}
+
+{% case section.settings.post_limit %}
+  {% when 1 %}
+    {%- assign column_size = '12' -%}
+  {% when 2 %}
+    {%- assign column_size = '6' -%}
+  {% when 3 %}
+    {%- assign column_size = '4' -%}
+  {% else %}
+    {%- assign column_size = '4' -%}
+{% endcase %}
+
 <section class="full-collection">
   <div class="container">
     {% if section.settings.title != blank %}
@@ -19,7 +31,7 @@
 
     <div class="full-collection-products row">
       {% for product in collection.products limit: 6 %}
-      <div class="full-collection-holder col-md-4 col-xs-12" data-aos="flip-left">
+      <div class="full-collection-holder col-md-{{ column_size }} col-sm-6 col-xs-12" data-aos="flip-left">
         <a class="featured-collection-item" href="{{ product.url | within: collection }}">
             {% if product.featured_image != blank %}
               <div class="featured-collection__image">
@@ -35,7 +47,9 @@
 
         <p class="product-title title">{{ product.title | escape }}</p>
 
-        <p class="product-category">{{ product.vendor }}</p>
+        {%- if section.settings.vendor -%}
+          <p class="product-category">{{ product.vendor }}</p>
+        {%- endif -%}
 
         {% if product.compare_at_price > product.price %}
 
@@ -61,7 +75,9 @@
           {% endif %}
         {% endif %}
 
-        <span class="btn">VIEW</span>
+        {%- if section.settings.buy_button_active -%}
+          <span class="btn">{{ section.settings.buy_button }}</span>
+        {% endif %}
 
         </a><!--.featured-collection-item ends-->
 
@@ -70,7 +86,7 @@
 
       {% else %}
         {% for i in (1..6) %}
-          <div class="full-collection-holder col-lg-4 col-sm-6 col-xs-12" data-aos="flip-left">
+          <div class="full-collection-holder col-md-{{ column_size }} col-sm-6 col-xs-12" data-aos="flip-left">
               <a href="{{ product.url | within: collection }}" class="featured-collection-item">
                 {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
                 <div class="product-img-container">
@@ -79,11 +95,15 @@
 
                 <p class="product-title title">{{ 'homepage.onboarding.product_title' | t }}</p>
 
-                <p class="product-category">Example vendor</p>
+                {%- if section.settings.vendor -%}
+                  <p class="product-category">Example vendor</p>
+                {%- endif -%}
 
                 <p class="product-money">{{ 1999 | money }}</p>
 
-                <span class="btn">VIEW</span>
+                {%- if section.settings.buy_button_active -%}
+                  <span class="btn">{{ section.settings.buy_button }}</span>
+                {% endif %}
               </a>
           </div><!--.full-collection-holder ends-->
         {% endfor %}
@@ -123,6 +143,33 @@
           "en": "Show view all button"
         },
         "default": true
+      },
+      {
+        "type": "range",
+        "id": "post_limit",
+        "label": "Posts",
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "checkbox",
+        "id": "vendor",
+        "label": "Show vendor",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "buy_button_active",
+        "label": "Buy Button",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "buy_button",
+        "label": "Button Title",
+        "default": "Buy Now"
       }
     ],
     "presets": [

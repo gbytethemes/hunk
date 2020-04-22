@@ -17,8 +17,26 @@
     border-color: {{ section.settings.button_border_color_hover }};
     background-color: {{ section.settings.button_background_color_hover }};
   }
+
+  .newsletter-section-{{ section.id }} #Email{
+    border-color: {{ section.settings.textfield_border_color }};
+    background-color: {{ section.settings.textfield_background_color }};
+    color: {{ section.settings.textfield_color }};
+  }
+  .newsletter-section-{{ section.id }} #Email::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: {{ section.settings.textfield_color }};
+    opacity: 1; /* Firefox */
+  }
+
+  .newsletter-section-{{ section.id }} #Email:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: {{ section.settings.textfield_color }};
+  }
+
+  .newsletter-section-{{ section.id }} #Email::-ms-input-placeholder { /* Microsoft Edge */
+    color: {{ section.settings.textfield_color }};
+  }
 </style>
-<section class="newsletter-section" style="background-color: {{ section.settings.background_color }};" data-aos="zoom-in-up">
+<section class="newsletter-section newsletter-section-{{ section.id }}" style="background-color: {{ section.settings.background_color }};" data-aos="zoom-in-up">
   <div class="row flex-align">
 
     {% capture image_layout %}
@@ -130,6 +148,24 @@
       {
         "type": "paragraph",
         "content": "Any customers who sign up will have an account created for them in Shopify. [View customers](/admin/customers?query=&accepts_marketing=1)"
+      },
+      {
+         "type": "color",
+         "id": "textfield_color",
+         "label": "Email field text",
+         "default": "#444444"
+       },
+      {
+         "type": "color",
+         "id": "textfield_border_color",
+         "label": "Email field border",
+         "default": "#000000"
+       },
+       {
+        "type": "color",
+        "id": "textfield_background_color",
+        "label": "Email field background",
+        "default": "#ffffff"
       },
       {
         "type": "text",

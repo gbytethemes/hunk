@@ -40,6 +40,13 @@
     border-color: {{ section.settings.btn_border_color_hover }};
   }
 
+  .banner-section-{{ section.id }}{
+    border: 1px solid {{ section.settings.section_border_color }};
+    {%- if section.settings.section_border  == false -%}
+    border: none;
+    {%- endif -%}
+  }
+
 </style>
 
 <section class="banner-section banner-section-{{ section.id }}" style="background-image: url({{ image_bg }}); background-color: {{ section.settings.bg_color }};">
@@ -100,6 +107,18 @@
   {
     "name": "Image with text",
     "settings": [
+      {
+        "type": "checkbox",
+        "id": "section_border",
+        "label": "Section Border",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "section_border_color",
+        "label": "Border color",
+        "default": "#eeeeee"
+      },
       {
         "type": "image_picker",
         "id": "image",
@@ -172,7 +191,7 @@
         "type": "color",
         "id": "btn_bg_color",
         "label": "Button Background",
-        "default": "#444444"
+        "default": "#fff"
       },
       {
         "type": "color",

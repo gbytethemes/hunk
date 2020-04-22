@@ -39,8 +39,6 @@
     "sale_tag_text": "#404040",
     "sale_tag_bg": "#f2dfb1",
     "sale_tag_border": "#e6d19d",
-    "social_icon": "#444444",
-    "social_icon_hover": "#7fc6a4",
     "footer_bg": "#fff",
     "footer_text": "#444",
     "font_logo": "pacifico_n4",
@@ -88,6 +86,8 @@
     "checkout_accent_color": "#197bbd",
     "checkout_button_color": "#197bbd",
     "checkout_error_color": "#e32c2b",
+    "social_icon": "#444444",
+    "social_icon_hover": "#7fc6a4",
     "font_body": "quicksand_n4",
     "font_size_font_body": 14,
     "newletter_text": "#444444",
@@ -105,6 +105,8 @@
           "announcement_bar_enabled": true,
           "announcement_bar_home_page_only": false,
           "social_media_links": true,
+          "social_icon": "#444444",
+          "social_icon_hover": "#000000",
           "announcement_bar_text": "Free Shipping on all orders $75+",
           "announcement_bar_link": "",
           "logo": "",
@@ -115,10 +117,12 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "show_instagram": true,
+          "show_instagram": false,
           "instagram_client_id": "33056453264.bd54f22.57a7107ea47a478885739c15bd703977",
           "title": "Follow Us to Keep Up With Trends & Sales!",
           "instagram_count": 1,
+          "section_border": true,
+          "section_border_color": "#eeeeee",
           "image_logo": "shopify:\/\/shop_images\/logo-dark.png",
           "phone_number": "999-555-5555",
           "email": "example@example.com",
@@ -128,6 +132,8 @@
           "right_title": "Our Mission",
           "footer_text": "Our soul purpose is to provide our customers with the best quality of clothing for an affordable price! A happy customer is the most rewarding feeling which is why we offer 15 day full refund if you are not satisfied. Please read our POLICIES for more information!",
           "show_payment_icons": true,
+          "social_icon": "#444444",
+          "social_icon_hover": "#000000",
           "image_bg": "shopify:\/\/shop_images\/banner-bg.png"
         }
       },
@@ -140,6 +146,9 @@
           "text_color": "#333333",
           "section_title": "Who Doesn’t Love  <br>Saving Money?",
           "subheading": "Sign up for our weekly promo emails to stay up to date with our latest products!\nAlso, to say thank you our first email to you will be 40% off your first purchase!",
+          "textfield_color": "#444444",
+          "textfield_border_color": "#000000",
+          "textfield_background_color": "#7fc6a4",
           "button_label": "Button label",
           "button_text_color": "#000000",
           "button_background_color": "rgba(0,0,0,0)",
@@ -160,7 +169,7 @@
               "slide_title": "Washed DenimJacket",
               "subheading": "extra flexibility, total comfort, and a perfect fit.",
               "button_label": "Shop",
-              "button_link": "shopify:\/\/pages\/about"
+              "button_link": "shopify:\/\/collections\/jackets"
             }
           },
           "1585790207061": {
@@ -171,7 +180,7 @@
               "slide_title": "Leather Chukka Boot",
               "subheading": "sleek leather and fine details.",
               "button_label": "Shop",
-              "button_link": "shopify:\/\/pages\/about"
+              "button_link": "shopify:\/\/collections\/shoes"
             }
           },
           "1585791377878": {
@@ -182,7 +191,7 @@
               "slide_title": "Nude Glasses",
               "subheading": "simple square shaped that can frame any face.",
               "button_label": "Shop",
-              "button_link": "shopify:\/\/pages\/about"
+              "button_link": "shopify:\/\/collections\/accessories"
             }
           }
         },
@@ -194,13 +203,14 @@
         "settings": {
           "text_size": "medium",
           "show_overlay": true,
-          "autorotate": true,
           "autorotate_speed": 5
         }
       },
       "1585857610547": {
         "type": "rich-text",
         "settings": {
+          "section_border": true,
+          "section_border_color": "#eeeeee",
           "title_icon_image": "shopify:\/\/shop_images\/stars.png",
           "title": "At A Glance",
           "title_bg": "",
@@ -222,6 +232,8 @@
       "1585860482161": {
         "type": "image-with-text",
         "settings": {
+          "section_border": true,
+          "section_border_color": "#eeeeee",
           "image": "shopify:\/\/shop_images\/banner1.png",
           "layout": "left",
           "title": "25% Off All Jeans!",
@@ -330,7 +342,11 @@
         "settings": {
           "title": "Featured Collection",
           "collection": "all",
-          "show_view_all": true
+          "show_view_all": true,
+          "post_limit": 3,
+          "vendor": true,
+          "buy_button_active": true,
+          "buy_button": "Buy Now"
         }
       },
       "product": {
@@ -350,6 +366,8 @@
       "image-with-text": {
         "type": "image-with-text",
         "settings": {
+          "section_border": true,
+          "section_border_color": "#eeeeee",
           "image": "shopify:\/\/shop_images\/about1.png",
           "layout": "left",
           "title": "Three Brothers With One Big Idea",
@@ -411,6 +429,8 @@
       "rich-text": {
         "type": "rich-text",
         "settings": {
+          "section_border": false,
+          "section_border_color": "#e8e6e6",
           "title_icon_image": "",
           "title": "It All Started Back In 2001",
           "title_bg": "2001",
@@ -426,7 +446,35 @@
           "btn_bg_color_hover": "#000",
           "btn_border_color": "#444444",
           "btn_border_color_hover": "#000",
-          "image_bg": ""
+          "image_bg": "shopify:\/\/shop_images\/banner-bg.png"
+        }
+      },
+      "contact-page-info": {
+        "type": "contact-page-info",
+        "settings": {
+          "location": "Location",
+          "address": "1230 Palmetto Plaza Ste. 120 Boca Raton, FL 33433",
+          "phone_number_title": "Contact us",
+          "phone_number": "954-555-HUNK",
+          "email_address": "Info@HUNK.com",
+          "welcometext": "Want to get in touch with us? Just fill out the form below and we’ll get back to you as soon as possible."
+        }
+      },
+      "article-page": {
+        "type": "article-page",
+        "settings": {
+          "text": "#000",
+          "background": "#7fc6a4",
+          "comment_background": "#ffffff",
+          "image_bg": "shopify:\/\/shop_images\/banner-bg.png"
+        }
+      },
+      "collection-list-page": {
+        "type": "collection-list-page",
+        "settings": {
+          "title": "Keep Up With Today’s Trends",
+          "main_heading": "Shop All Products",
+          "post_limit": 3
         }
       }
     },

@@ -288,22 +288,6 @@
       },
       {
         "type": "header",
-        "content": "Social Icons"
-      },
-      {
-        "type": "color",
-        "id": "social_icon",
-        "label": "Icon",
-        "default": "#444444"
-      },
-      {
-        "type": "color",
-        "id": "social_icon_hover",
-        "label": "Hover",
-        "default": "#000000"
-      },
-      {
-        "type": "header",
         "content": "Footer"
       },
       {

@@ -35,6 +35,13 @@
     border-color: {{ section.settings.btn_border_color_hover }};
   }
 
+  .about-info-{{ section.id }}{
+    border: 1px solid {{ section.settings.section_border_color }};
+    {%- if section.settings.section_border  == false -%}
+    border: none;
+    {%- endif -%}
+  }
+
 </style>
 
 <section class="about-info about-info-{{ section.id }}" style=" background-image: url({{ image_bg }});" data-aos="fade-zoom-in"
@@ -73,6 +80,18 @@
   {
     "name": "Rich text",
     "settings": [
+      {
+        "type": "checkbox",
+        "id": "section_border",
+        "label": "Section Border",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "section_border_color",
+        "label": "Border color",
+        "default": "#eeeeee"
+      },
       {
         "type": "image_picker",
         "id": "title_icon_image",
@@ -180,7 +199,7 @@
         "type": "color",
         "id": "btn_bg_color",
         "label": "Button Background",
-        "default": "#444444"
+        "default": "#fff"
       },
       {
         "type": "color",

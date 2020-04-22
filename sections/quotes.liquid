@@ -6,11 +6,22 @@
       </div>
     {% endif %}
 
+    {% case section.blocks.size %}
+      {% when 1 %}
+        {%- assign column_size = '12' -%}
+      {% when 2 %}
+        {%- assign column_size = '6' -%}
+      {% when 3 %}
+        {%- assign column_size = '4' -%}
+      {% else %}
+        {%- assign column_size = '4' -%}
+    {% endcase %}
+
     {% if section.blocks.size > 0 %}
       <div class="quotes-wrapper">
         <div class="quotes-slider row" id="Quotes-{{ section.id }}" data-count="{{ section.blocks.size }}">
           {% for block in section.blocks %}
-            <div class="col-lg-4 col-md-6 col-12 quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
+            <div class="col-lg-{{ column_size }} col-md-6 col-12 quotes-slide--{{ block.id }}" {{ block.shopify_attributes }}>
               <blockquote class="quotes-slider__text text-center">
                 <span class="quote-icon">{% include 'icon-quote' %}</span>
                 {% if block.settings.quote != blank %}
@@ -32,6 +43,24 @@
   </div>
 </section>
 
+
+{% case section.blocks.size %}
+  {% when 1 %}
+    {%- assign column_size_1 = '1' -%}
+  {% when 2 %}
+    {%- assign column_size_1 = '2' -%}
+  {% when 3 %}
+    {%- assign column_size_1 = '3' -%}
+  {% else %}
+    {%- assign column_size_1 = '3' -%}
+{% endcase %}
+
+{% assign md_size = column_size_1 | minus: 1 %}
+
+{%- if  md_size == 0 -%}
+  {%  assign md_size = 1 %}
+{%- endif -%}
+
 <script>
 function runQuotesSlider(){
     jQuery("#Quotes-{{ section.id }}").slick({
@@ -43,16 +72,16 @@ function runQuotesSlider(){
         autoplaySpeed: 1500,
         arrows: true,
         centerMode: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: {{ column_size_1 }},
+        slidesToScroll: 1,
         pauseOnHover: true,
         useCSS: true,
         responsive: [
     {
       breakpoint: 991,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: {{ md_size }},
+        slidesToScroll: {{ md_size }},
         infinite: true,
         dots: true
       }
@@ -83,6 +112,10 @@ jQuery(document).ready(function() {
 });
 
 jQuery(document).on('shopify:section:load', function(){
+  runQuotesSlider();
+});
+
+jQuery(document).on('shopify:section:select', function(){
   runQuotesSlider();
 });
 

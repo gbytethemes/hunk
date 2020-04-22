@@ -32,6 +32,16 @@
   </div><!--.search-holder ends-->
 </div><!--.searchbar-holder ends-->
 
+
+<style type="text/css">
+  .top-banner .social-media a{
+      color:{{ section.settings.social_icon }};
+  }
+  .top-banner .social-media a:hover{
+      color:{{ section.settings.social_icon_hover }};
+  }
+</style>
+
   {%- if section.settings.announcement_bar_enabled -%}
   {%- if section.settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
   <div class="top-banner">
@@ -262,6 +272,18 @@
         "id": "social_media_links",
         "label": "Show social media links",
         "default": true
+      },
+      {
+        "type": "color",
+        "id": "social_icon",
+        "label": "Icon",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "social_icon_hover",
+        "label": "Hover",
+        "default": "#000000"
       },
       {
         "type": "text",

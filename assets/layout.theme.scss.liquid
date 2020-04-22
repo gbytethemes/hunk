@@ -218,7 +218,6 @@ h1,h2,h3,h4,h5,h6{
   font-family: {{ settings.font_heading.family }};
 }
 input,
-select,
 textarea {
     font-size: 1.6rem;
     max-width: 100%;
@@ -633,7 +632,7 @@ symbol.icon:not(.icon--full-color) rect {
 }
 .address-form [data-line-count="2"] {
     -ms-flex-preferred-size: 49%;
-    flex-basis: 49%
+    flex-basis: 49%;
 }
 .address-form [data-line-count="3"] {
     -ms-flex-preferred-size: 32%;
@@ -642,7 +641,6 @@ symbol.icon:not(.icon--full-color) rect {
 .about-info {
     text-align: center;
     padding: 100px 0;
-    border: 1px solid #eee;
     background-position: center;
     background-size: cover;
 }
@@ -696,6 +694,16 @@ symbol.icon:not(.icon--full-color) rect {
     background-repeat: no-repeat;
     background-size: cover
 }
+
+.collection-sort{
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.collection-sort label{
+  margin-right: 10px;
+}
+
 .banner-padding{
   padding: 200px 0 100px;
 }
@@ -858,7 +866,7 @@ symbol.icon:not(.icon--full-color) rect {
     border-radius: 10px;
     box-shadow: 0 0 10px #ccc;
     background-color: {{ settings.product_background }};
-    min-height: 450px;
+    min-height: 350px;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
@@ -1167,12 +1175,7 @@ a:hover {
     display: inline-block;
     padding: 0 5px
 }
-.top-banner .social-media li a, .social-media-icons ul li a {
-    color: {{ settings.social_icon }};
-}
-.top-banner .social-media li a:hover, .social-media-icons ul li a:hover{
-    color: {{ settings.social_icon_hover }};
-}
+
 
 #shopify-section-header{
   position: relative;
@@ -1339,7 +1342,6 @@ header.header-section .menu-right .account-icon{
 }
 .banner-section {
     padding: 20px 0;
-    border: 1px solid #eee;
     background-position: center;
     background-size: cover;
 }
@@ -1449,7 +1451,7 @@ header.header-section .menu-right .account-icon{
 }
 .newsletter-section #Email {
     width: 50%;
-    padding: 12px 20px;
+    padding: 10px 20px;
     border-radius: 30px;
     border: 2px solid #000;
     background-color: rgba(255, 255, 255, 0.4);
@@ -1536,7 +1538,7 @@ header.header-section .menu-right .account-icon{
     height: 15px;
     border-width: 2px 2px 0 0;
     border-style: solid;
-    border-color: #000;
+    border-color: {{ settings.form_fields }};
     transition: .2s ease;
     display: block;
     transform-origin: 100% 0;
@@ -2758,8 +2760,11 @@ footer {
 // }
 
 
-.about-section-two,
-.about-section-three{
+.about-section-two{
+  padding: 100px 0;
+}
+
+.about-section-three .about-info{
   padding: 100px 0;
 }
 
@@ -2782,10 +2787,6 @@ footer {
 .about-section-two{
   position: relative;
   background-color: {{ settings.theme_color }};
-}
-
-.about-section-three .about-info{
-  border: none;
 }
 
 .about-section-two .image-bar .image-bar__item{
@@ -2811,16 +2812,11 @@ footer {
 }
 
 .about-section-three .about-info{
-  padding: 0;
+  padding: 150px 0 50px;
 }
 
 .no-icon:before{
   display: none !important;
-}
-
-.about-section-three{
-  border-bottom: 1px solid #eee;
-    background-image: url('banner-bg.png');
 }
 
 .about-year{
@@ -2907,8 +2903,12 @@ footer {
   text-decoration: none;
 }
 
-.search-button{
-  cursor: pointer;
+.search-button, .search-button svg{
+  cursor: pointer !important;
+}
+
+.search-button svg:hover, .my-account a:hover svg{
+  fill: #000 !important;
 }
 
 .blog-list-section{
@@ -3026,7 +3026,8 @@ footer {
 
 .article-contents-two{
   padding: 50px 0;
-  background-image: url('banner-bg.png');
+  background-position: center;
+  background-size: contain;
 }
 
 #comments .number_of_comments{
@@ -3166,6 +3167,11 @@ footer {
   .header-section .menu-right,
   .main-menu nav{
     display: none;
+  }
+
+  .collection-top-product .text-right{
+    padding: 20px 0;
+    text-align: center;
   }
 
   header.header-section{
