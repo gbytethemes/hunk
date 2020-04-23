@@ -6,7 +6,7 @@
     "theme_color": "#7fc6a4",
     "title_headings": "#333333",
     "body_text": "#333333",
-    "text_links": "#428bca",
+    "text_links": "#7fc6a4",
     "text_links_hover": "#000",
     "bar_text": "#444444",
     "header_logo": "#ffffff",
@@ -30,6 +30,7 @@
     "slider_button_border": "#ffffff",
     "slider_button_border_hover": "#fff",
     "dropdown_arrow": "#444444",
+    "dropdown_arrow_bg": "rgba(0,0,0,0)",
     "color_titles": "#333333",
     "product_background": "#ffffff",
     "product_background_hover": "#7fc6a4",
@@ -117,24 +118,22 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "show_instagram": false,
-          "instagram_client_id": "33056453264.bd54f22.57a7107ea47a478885739c15bd703977",
-          "title": "Follow Us to Keep Up With Trends & Sales!",
-          "instagram_count": 1,
           "section_border": true,
           "section_border_color": "#eeeeee",
           "image_logo": "shopify:\/\/shop_images\/logo-dark.png",
-          "phone_number": "999-555-5555",
-          "email": "example@example.com",
+          "phone_number": "954-555-HUNK",
+          "email": "Info@HUNK.com",
           "footer_linklist": "category",
           "footer_linklist_second": "main-menu",
           "footer_linklist_third": "terms",
           "right_title": "Our Mission",
-          "footer_text": "Our soul purpose is to provide our customers with the best quality of clothing for an affordable price! A happy customer is the most rewarding feeling which is why we offer 15 day full refund if you are not satisfied. Please read our POLICIES for more information!",
+          "footer_text": "Our soul purpose is to provide our customers with the best quality of clothing for an affordable price! A happy customer is the most rewarding feeling which is why we offer 15 day full refund if you are not satisfied.",
           "show_payment_icons": true,
           "social_icon": "#444444",
           "social_icon_hover": "#000000",
-          "image_bg": "shopify:\/\/shop_images\/banner-bg.png"
+          "image_bg": "shopify:\/\/shop_images\/banner-bg.png",
+          "copyright_color": "#444",
+          "copyright_bg_color": "#fff"
         }
       },
       "1573350439619": {
@@ -360,7 +359,7 @@
         "settings": {
           "show_product_recommendations": true,
           "heading": "You may also like",
-          "show_vendor": false
+          "show_vendor": true
         }
       },
       "image-with-text": {
@@ -452,12 +451,16 @@
       "contact-page-info": {
         "type": "contact-page-info",
         "settings": {
+          "contact_text": "#444444",
+          "contact_bg": "#7fc6a4",
           "location": "Location",
           "address": "1230 Palmetto Plaza Ste. 120 Boca Raton, FL 33433",
           "phone_number_title": "Contact us",
           "phone_number": "954-555-HUNK",
           "email_address": "Info@HUNK.com",
-          "welcometext": "Want to get in touch with us? Just fill out the form below and we’ll get back to you as soon as possible."
+          "welcometext": "Want to get in touch with us? Just fill out the form below and we’ll get back to you as soon as possible.",
+          "form_color": "#ffffff",
+          "form_bg": "shopify:\/\/shop_images\/banner-bg.png"
         }
       },
       "article-page": {
@@ -475,6 +478,18 @@
           "title": "Keep Up With Today’s Trends",
           "main_heading": "Shop All Products",
           "post_limit": 3
+        }
+      },
+      "collection-page": {
+        "type": "collection-page",
+        "settings": {
+          "title": "Keep Up With Today’s Trends",
+          "main_heading": "Shop",
+          "post_limit": 3,
+          "post_page_limit": 15,
+          "vendor": true,
+          "buy_button_active": true,
+          "buy_button": "Buy Now"
         }
       }
     },
