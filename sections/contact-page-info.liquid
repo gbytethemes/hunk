@@ -37,8 +37,10 @@
 
 <style type="text/css">
   .contact-form-holder{
+    {%- if section.settings.form_bg != blank -%}
+      background-image: url({{ section.settings.form_bg | img_url: 'master' }});
+    {%- endif -%}
     background-color: {{ section.settings.form_color }};
-    background-image: url({{ section.settings.form_bg | img_url: 'master' }});
   }
 </style>
 
