@@ -91,7 +91,7 @@
     function runSlider(){
         jQuery('.flexslider-{{ section.id }}').flexslider({
           animation: jQuery('.flexslider-{{ section.id }}').attr('data-animation'),
-          slideshow: {{ section.settings.autorotate }},
+          slideshow: true,
           slideshowSpeed: jQuery('.flexslider-{{ section.id }}').attr('data-slideshowspeed'),
           controlNav: true,
           keyboard: false,
@@ -260,32 +260,6 @@
         "th": "แสดงการวางซ้อน",
         "zh-CN": "显示叠加",
         "zh-TW": "顯示疊加層"
-      },
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "autorotate",
-      "label": {
-        "da": "Roter automatisk slides",
-        "de": "Auto-rotieren der Slides",
-        "en": "Auto-rotate slides",
-        "es": "Rotar las diapositivas automáticamente",
-        "fi": "Käännä diat automaattisesti",
-        "fr": "Rotation automatique des diapositives",
-        "hi": "ऑटो-रोटेट स्लाइड",
-        "it": "Ruota slide automaticamente",
-        "ja": "スライドの自動切り替え",
-        "ko": "슬라이드 자동 회전",
-        "ms": "Slaid auto putar",
-        "nb": "Autoroter lysbildene",
-        "nl": "Dia's automatisch draaien",
-        "pt-BR": "Rodar os slides automaticamente",
-        "pt-PT": "Reprodução automática de diapositivos",
-        "sv": "Auto-rotera bilder",
-        "th": "หมุนสไลด์อัตโนมัติ",
-        "zh-CN": "自动旋转幻灯片",
-        "zh-TW": "自動旋轉投影片"
       },
       "default": true
     },

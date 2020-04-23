@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12">
+    <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12" style="background-color: {{ section.settings.contact_bg }}; color:{{ section.settings.contact_text }};">
       {%- if section.settings.location != blank -%}
-        <h3 class="title">{{ section.settings.location }}</h3>
+        <h3 class="title" style="color:{{ section.settings.contact_text }};">{{ section.settings.location }}</h3>
       {%- endif -%}
 
       {%- if section.settings.address != blank -%}
@@ -10,21 +10,21 @@
       {%- endif -%}
     </div>
 
-    <div class="main-contact-info col-sm-4 hidden-xs"> 
+    <div class="main-contact-info col-sm-4 hidden-xs">
       {% include 'down-arrow' %}
     </div>
 
-    <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12">
+    <div class="main-contact-info cinfo-bg col-sm-4 col-xs-12" style="background-color: {{ section.settings.contact_bg }}; color:{{ section.settings.contact_text }};">
       {%- if section.settings.phone_number_title != blank -%}
-        <h3 class="title">{{ section.settings.phone_number_title }}</h3>
+        <h3 class="title" style="color:{{ section.settings.contact_text }};">{{ section.settings.phone_number_title }}</h3>
       {%- endif -%}
       <ul>
         {%- if section.settings.phone_number != blank -%}
-        <li>P: <a href="tel: {{ section.settings.phone_number }}">{{ section.settings.phone_number }}</a></li>
+        <li>P: <a href="tel: {{ section.settings.phone_number }}" style="color:{{ section.settings.contact_text }};">{{ section.settings.phone_number }}</a></li>
         {%- endif -%}
 
         {%- if section.settings.email_address != blank -%}
-        <li>Email: <a href="mailto: {{ section.settings.email_address }}">{{ section.settings.email_address }}</a></li>
+        <li>Email: <a href="mailto: {{ section.settings.email_address }}" style="color:{{ section.settings.contact_text }};">{{ section.settings.email_address }}</a></li>
         {%- endif -%}
       </ul>
     </div>
@@ -35,10 +35,48 @@
   {%- endif -%}
 </div>
 
+<style type="text/css">
+  .contact-form-holder{
+    {%- if section.settings.form_bg != blank -%}
+      background-image: url({{ section.settings.form_bg | img_url: 'master' }});
+    {%- endif -%}
+    background-color: {{ section.settings.form_color }};
+  }
+</style>
+
+
 {% schema %}
   {
     "name": "Contact Info",
     "settings": [
+      {
+        "type": "color",
+        "id": "contact_text",
+        "label": "Text",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "contact_bg",
+        "label": {
+          "da": "Baggrund",
+          "de": "Hintergrund",
+          "en": "Background",
+          "es": "Antecedentes",
+          "fi": "Tausta",
+          "fr": "Contexte",
+          "hi": "पृष्ठभूमि",
+          "it": "sfondo",
+          "ja": "バックグラウンド",
+          "ko": "배경",
+          "ms": "Latar belakang",
+          "nb": "Bakgrunn",
+          "nl": "Achtergrond",
+          "sv": "Bakgrund",
+          "th": "พื้นหลัง"
+        },
+        "default": "#7fc6a4"
+      },
       {
         "type": "text",
         "id": "location",
@@ -74,6 +112,33 @@
         "id": "welcometext",
         "label": "Welcome message",
         "default": "Want to get in touch with us? Just fill out the form below and we’ll get back to you as soon as possible."
+      },
+      {
+        "type": "color",
+        "id": "form_color",
+        "label": {
+          "da": "Baggrund",
+          "de": "Hintergrund",
+          "en": "Form Background",
+          "es": "Antecedentes",
+          "fi": "Tausta",
+          "fr": "Contexte",
+          "hi": "पृष्ठभूमि",
+          "it": "sfondo",
+          "ja": "バックグラウンド",
+          "ko": "배경",
+          "ms": "Latar belakang",
+          "nb": "Bakgrunn",
+          "nl": "Achtergrond",
+          "sv": "Bakgrund",
+          "th": "พื้นหลัง"
+        },
+        "default": "#7fc6a4"
+      },
+      {
+        "type": "image_picker",
+        "id": "form_bg",
+        "label": "Form Background"
       }
     ]
   }

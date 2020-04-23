@@ -1,45 +1,20 @@
-{% if section.settings.show_instagram %}
-{% assign instagram_count = section.settings.instagram_count | times: 5 %}
-<section class="instagram-section" data-aos="fade-up"
-     data-aos-anchor-placement="bottom-bottom">
-  <div class="container">
-  {% if section.settings.title != blank %}
-    <div class="insta-title">
-      <h2 class="title">
-        {% if settings.instagram_link != blank %}
-          <a href="{{ settings.instagram_link }}" target="_blank">
-        {% endif %}
-        {{ section.settings.title | escape }}
-        {% if settings.instagram_link != blank %}
-          </a>
-        {% endif %}
-      </h2>
-    </div><!--.insta-title-->
-  {% endif %}
-  </div>
+{% capture image_bg %}
+  {%- if section.settings.image_bg != blank -%}
+  {{ section.settings.image_bg | img_url: 'master'}}
+  {%- endif -%}
+{% endcapture %}
 
-  {% if section.settings.instagram_client_id != blank %}
-  <div class="insta-slider">
-    <div id="insta-feed"></div>
-  </div>
-  {% else %}
-  <div class="insta-slider">
-    <div class="clearfix placeholder-instagram">
-      {% for i in (1..instagram_count) %}
-        <div class="col-md-3">
-          <a href="#">
-            {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--instagram' }}
-          </a>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-  {% endif %}
+<style>
+  .footer-section{
+    border: 1px solid {{ section.settings.section_border_color }};
+    {%- if section.settings.section_border  == false -%}
+    border: none;
+    {%- endif -%}
+  }
+</style>
 
-</section>
-{% endif %}
-<footer data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom"> 
+<footer class="footer-section" style="background-image: url({{ image_bg }}); background-color: {{ section.settings.about_info_bg_color}};" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom">
   <div class="container">
     <div class="row">
 
@@ -68,6 +43,15 @@
                 {% endif %}
               </ul>
             </div><!--.footer-contact ends-->
+
+<style type="text/css">
+  footer .social-media-icons a{
+      color:{{ section.settings.social_icon }};
+  }
+  footer .social-media-icons a:hover{
+      color:{{ section.settings.social_icon_hover }};
+  }
+</style>
 
             <div class="social-media-icons">
               {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
@@ -158,7 +142,13 @@
   </div>
 
 
-  <div class="copyright-section">
+  <style type="text/css">
+    .copyright-info a{
+      color: {{ section.settings.copyright_color }};
+    }
+  </style>
+
+  <div class="copyright-section" style="color: {{ section.settings.copyright_color }}; background-color: {{ section.settings.copyright_bg_color }};">
     <div class="container">
 
     <div class="copyright-info {% if section.settings.show_payment_icons %}col-md-6{% endif %} col-xs-12 text-center">
@@ -193,29 +183,15 @@
     "settings": [
       {
         "type": "checkbox",
-        "id": "show_instagram",
-        "label": "Show Instagram",
-        "default": false
+        "id": "section_border",
+        "label": "Section Border",
+        "default": true
       },
       {
-        "type": "text",
-        "id": "instagram_client_id",
-        "label": "Instagram Access Token ([?](https:\/\/outofthesandbox.com\/pages\/instagram-access-token))"
-      },
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Heading",
-        "default": "Instagram"
-      },
-      {
-        "type": "range",
-        "id": "instagram_count",
-        "label": "Number of rows",
-        "min": 1,
-        "max": 4,
-        "step": 1,
-        "default": 1
+        "type": "color",
+        "id": "section_border_color",
+        "label": "Border color",
+        "default": "#eeeeee"
       },
       {
         "type": "image_picker",
@@ -269,6 +245,35 @@
         "id": "show_payment_icons",
         "label": "Show payment icons",
         "default": false
+      },
+      {
+        "type": "color",
+        "id": "social_icon",
+        "label": "Icon",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "social_icon_hover",
+        "label": "Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_bg",
+        "label": "Background Image"
+      },
+      {
+        "type": "color",
+        "id": "copyright_color",
+        "label": "Copyright Text",
+        "default": "#444"
+      },
+      {
+        "type": "color",
+        "id": "copyright_bg_color",
+        "label": "Copyright Background",
+        "default": "#fff"
       }
     ]
   }

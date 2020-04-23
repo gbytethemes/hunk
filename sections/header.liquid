@@ -16,7 +16,7 @@
     <label for="Search-{{ section.id }}" class="label-hidden">
       {{ 'general.search.placeholder' | t }}
     </label>
-    <a class="btn search-close">Close</a> 
+    <a class="btn search-close">Close</a>
     <input type="search"
       name="q"
       id="Search-{{ section.id }}"
@@ -31,6 +31,16 @@
 
   </div><!--.search-holder ends-->
 </div><!--.searchbar-holder ends-->
+
+
+<style type="text/css">
+  .top-banner .social-media a{
+      color:{{ section.settings.social_icon }};
+  }
+  .top-banner .social-media a:hover{
+      color:{{ section.settings.social_icon_hover }};
+  }
+</style>
 
   {%- if section.settings.announcement_bar_enabled -%}
   {%- if section.settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
@@ -65,7 +75,7 @@
 
   <div class="header-holder">
 
-  <header class="header-section {% if section.settings.float_header == true %}relative-header{% endif %}" role="banner">
+  <header class="header-section {% if settings.float_header != true %}relative-header{% else %}absolute-header{% endif %}" role="banner">
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-xs-6 main-logo">
@@ -264,6 +274,18 @@
         "default": true
       },
       {
+        "type": "color",
+        "id": "social_icon",
+        "label": "Icon",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "social_icon_hover",
+        "label": "Hover",
+        "default": "#000000"
+      },
+      {
         "type": "text",
         "id": "announcement_bar_text",
         "label": "Announcement text",
@@ -278,12 +300,6 @@
       {
         "type": "header",
         "content": "Header"
-      },
-      {
-        "type": "checkbox",
-        "id": "float_header",
-        "label": "Overlap Header",
-        "default": true
       },
       {
         "type": "image_picker",

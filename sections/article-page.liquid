@@ -1,0 +1,227 @@
+<div class="article-contents" style="background-color: {{ section.settings.background }};">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+          {% if article.image %}
+          <div class="article-image-holder text-center">
+            <img src="{{ article.image | img_url: 'master' }}" alt="">
+          </div><!--.article-image-holder ends-->
+
+          <noscript>
+            {%- assign image_size = article.image.width | append: 'x' -%}
+            <div class="hero-banner hero-banner--article" style="background-image: {{ article.image | img_url: image_size }}"></div>
+          </noscript>
+          {% endif %}
+
+          <div class="post-info-holder row">
+            <div class="post-info col-sm-6 col-xs-12">
+              {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+              <p>{{ 'blogs.article.author_on_date_html' | t: author: article.author, date: date }}</p>
+            </div>
+
+            <div class="article-social col-sm-6 col-xs-12">
+              {% if settings.social_sharing_blog %}
+                {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+              {% endif %}
+            </div>
+
+            {% if article.tags.size > 0 %}
+            <div class="article-tags col-xs-12">
+                <ul>
+                  {% for tag in article.tags %}
+                    <li>
+                      <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+                    </li>
+                  {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+          </div>
+      </div>
+
+      <div class="col-xs-12 text-center">
+          <h2 class="article-title title" style="color: {{ section.settings.text }};">{{ article.title }}</h2>
+      </div>
+
+      <div class="article-content col-xs-12" style="color: {{ section.settings.text }};">
+        {{ article.content }}
+        {% include 'down-arrow' %}
+      </div>
+
+    </div>
+  </div>
+</div><!--.article-contents ends-->
+
+{% capture image_bg %}
+  {%- if section.settings.image_bg != blank -%}
+  {{ section.settings.image_bg | img_url: 'master'}}
+  {%- endif -%}
+{% endcapture %}
+
+<div class="article-contents-two" style="background-image: url({{ image_bg }}); background-color: {{ section.settings.comment_background }};">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+    {% if blog.comments_enabled? %}
+      <h3 class="title text-center">{{ 'blogs.comments.with_count' | t: count: number_of_comments }}</h3>
+
+      {% paginate article.comments by 5 %}
+
+      <div id="comments">
+        {% if comment and comment.status and comment.id != blank and paginate.current_page == 1 %}
+          <p class="form-success text-center">
+            {% if blog.moderated? and comment.status != 'published' %}
+              {{ 'blogs.comments.success_moderated' | t }}
+            {% else %}
+              {{ 'blogs.comments.success' | t }}
+            {% endif %}
+          </p>
+        {% endif %}
+
+        {% if number_of_comments > 0 %}
+          <ul class="number_of_comments">
+            {% comment %}
+              Display comment from URL parameters if it is waiting moderation
+              We added "comment.id" check to make sure we don't display markup if there are form errors
+            {% endcomment %}
+            {% if comment and comment.status != 'published' and comment.id != blank %}
+              <li id="{{ comment.id }}">
+                <div class="rte">
+                  {{ comment.content }}
+                </div>
+                {% capture date %}{{ comment.created_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+                <p>{{ 'blogs.article.comment_meta_html' | t: author: comment.author, date: date }}</p>
+              </li>
+            {% endif %}
+
+            {% for comment in article.comments %}
+              <li id="{{ comment.id }}">
+                <div class="rte">
+                  {{ comment.content }}
+                </div>
+                {% capture date %}{{ comment.created_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+                <p>{{ 'blogs.article.comment_meta_html' | t: author: comment.author, date: date }}</p>
+              </li>
+            {% endfor %}
+          </ul>
+
+          {% if paginate.pages > 1 %}
+            {% include 'pagination' %}
+          {% endif %}
+        {% endif %}
+      </div>
+
+      {% endpaginate %}
+
+      {% form 'new_comment', article %}
+        <h3 class="title text-center">{{ 'blogs.comments.title' | t }}</h3>
+
+        {{ form.errors | default_errors }}
+        <div class="commentform">
+        <div class="row">
+            <div class="col-md-6">
+              <label for="CommentAuthor" class="label-hidden">
+                {{ 'blogs.comments.name' | t }}
+              </label>
+              <input type="text"
+                     name="comment[author]"
+                     id="CommentAuthor"
+                     class="{% if form.errors contains 'author' %}input-error{% endif %}"
+                     placeholder="{{ 'blogs.comments.name' | t }}"
+                     value="{{ form.author }}"
+                     autocapitalize="words">
+            </div>
+
+            <div class="col-md-6">
+              <label for="CommentEmail" class="label-hidden">
+                {{ 'blogs.comments.email' | t }}
+              </label>
+              <input type="email"
+                     name="comment[email]"
+                     id="CommentEmail"
+                     class="{% if form.errors contains 'email' %}input-error{% endif %}"
+                     placeholder="{{ 'blogs.comments.email' | t }}"
+                     value="{{ form.email }}"
+                     spellcheck="false"
+                     autocomplete="off"
+                     autocapitalize="off">
+            </div>
+
+            <div class="col-md-12">
+              <label for="CommentBody" class="label-hidden">
+                {{ 'blogs.comments.message' | t }}
+              </label>
+              <textarea
+                name="comment[body]"
+                id="CommentBody"
+                class="{% if form.errors contains 'body' %}input-error{% endif %}"
+                placeholder="{{ 'blogs.comments.message' | t }}">
+                {{- form.body -}}
+              </textarea>
+            </div>
+
+            <div class="col-md-12">
+              <input type="submit" class="btn button" value="{{ 'blogs.comments.post' | t }}">
+            </div>
+        </div>
+      </div><!--.commentform ends-->
+
+        {% if blog.moderated? %}
+          <p>{{ 'blogs.comments.moderated' | t }}</p>
+        {% endif %}
+
+
+      {% endform %}
+
+    {% endif %}
+  </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Article",
+    "settings": [
+      {
+        "type": "color",
+        "id": "text",
+        "label": "Body text",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "background",
+        "label": {
+          "da": "Baggrund",
+          "de": "Hintergrund",
+          "en": "Background",
+          "es": "Antecedentes",
+          "fi": "Tausta",
+          "fr": "Contexte",
+          "hi": "पृष्ठभूमि",
+          "it": "sfondo",
+          "ja": "バックグラウンド",
+          "ko": "배경",
+          "ms": "Latar belakang",
+          "nb": "Bakgrunn",
+          "nl": "Achtergrond",
+          "sv": "Bakgrund",
+          "th": "พื้นหลัง"
+        },
+        "default": "#7fc6a4"
+      },
+      {
+        "type": "color",
+        "id": "comment_background",
+        "label": "Comment background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_bg",
+        "label": "Comment Background Image"
+      }
+    ]
+  }
+{% endschema %}

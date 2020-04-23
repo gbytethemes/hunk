@@ -1,0 +1,186 @@
+{% assign ppp = section.settings.post_page_limit %}
+{% paginate collection.products by ppp %}
+
+{% include 'site-wide-banner' %}
+  <div class="container">
+    <span class="title-min">{{ section.settings.title }}</span>
+    <h1 class="collection-title title">{{ section.settings.main_heading }} {{ collection.title }}</h1>
+  </div>
+  {% include 'down-arrow' %}
+</div><!--.collection-banner-title ends-->
+
+<div class="collection-top-product">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-xs-12 text-center">
+        {%- include 'breadcrumbs' -%}
+      </div>
+
+      <div class="col-md-8 col-xs-12 text-right">
+        {%- include 'collection-filter' -%}
+      </div>
+    </div>
+  </div>
+</div><!--.collection-top-product ends-->
+
+
+{% case section.settings.post_limit %}
+  {% when 1 %}
+    {%- assign column_size = '12' -%}
+  {% when 2 %}
+    {%- assign column_size = '6' -%}
+  {% when 3 %}
+    {%- assign column_size = '4' -%}
+  {% else %}
+    {%- assign column_size = '4' -%}
+{% endcase %}
+
+<div class="collection-products">
+  <div class="container">
+    <div class="full-collection-products row">
+      {% for product in collection.products %}
+      <div class="full-collection-holder col-md-{{ column_size }} col-sm-6 col-xs-12" data-aos="flip-left">
+        <a href="{{ product.url | within: collection }}" class="featured-collection-item">
+          {% if product.featured_image != blank %}
+            <div class="featured-collection__image">
+              <div class="product-img-container">
+              {% include 'responsive-image' with
+                image: product.featured_image,
+                max_width: 480,
+                max_height: 480
+              %}
+            </div><!--.product-img-container ends-->
+            </div>
+          {% endif %}
+
+        <p class="product-title">{{ product.title | escape }}</p>
+
+        {%- if section.settings.vendor -%}
+          <p class="product-category">{{ product.vendor }}</p>
+        {%- endif -%}
+
+          {% if product.compare_at_price > product.price %}
+
+              {% if product.price_varies %}
+                <div class="on-sale_badge">
+                  {%- assign sale_price = product.price | money -%}
+                  {{ 'products.product.on_sale' | t }}
+                </div>
+                <p class="product-money">{{ product.price | money }} <span class="strike">{{ product.compare_at_price | money }}</span></p>
+              {% else %}
+                <div class="on-sale_badge">
+                  {{ 'products.product.on_sale' | t }}
+                </div><!--.on-sale_badge ends-->
+                <p class="product-money">{{ product.price | money }}</p>
+              {% endif %}
+
+          {% else %}
+            {% if product.price_varies %}
+              {%- assign price = product.price | money -%}
+              <p class="product-money">{{ 'products.product.from_text_html' | t: price: price }}</p>
+            {% else %}
+              <p class="product-money">{{ product.price | money }}</p>
+            {% endif %}
+          {% endif %}
+
+          {%- if section.settings.buy_button_active -%}
+            <span class="btn">{{ section.settings.buy_button }}</span>
+          {% endif %}
+
+      </a>
+      </div><!--.full-collection-holder ends-->
+
+      {% else %}
+        {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
+          {% for i in (1..8) %}
+          <div class="full-collection-holder col-md-{{ column_size }} col-sm-6 col-xs-12" data-aos="flip-left">
+              <a href="{{ product.url | within: collection }}" class="featured-collection-item">
+                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                <div class="product-img-container">
+                  {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+                </div>
+
+                <p class="product-title">{{ 'homepage.onboarding.product_title' | t }}</p>
+
+                <p class="product-category">Example vendor</p>
+
+                <p class="product-money">{{ 1999 | money }}</p>
+
+                {%- if section.settings.buy_button_active -%}
+                  <span class="btn">{{ section.settings.buy_button }}</span>
+                {% endif %}
+
+              </a>
+          </div><!--.full-collection-holder ends-->
+          {% endfor %}
+        {% else %}
+          <p>{{ 'collections.general.no_matches' | t }}</p>
+        {% endif %}
+
+      {% endfor %}
+    </div>
+  </div>
+</div><!--.collection-products ends-->
+
+{% if paginate.pages > 1 %}
+  {% include 'pagination' %}
+{% endif %}
+{% endpaginate %}
+
+
+
+{% schema %}
+  {
+    "name": "Collection pages",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Mini heading",
+        "default": "Keep Up With Today’s Trends"
+      },
+      {
+        "type": "text",
+        "id": "main_heading",
+        "label": "Heading",
+        "default": "Shop"
+      },
+      {
+        "type": "range",
+        "id": "post_limit",
+        "label": "Posts per row",
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "post_page_limit",
+        "label": "Posts per page",
+        "min": 1,
+        "max": 50,
+        "step": 1,
+        "default": 12
+      },
+      {
+        "type": "checkbox",
+        "id": "vendor",
+        "label": "Show vendor",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "buy_button_active",
+        "label": "Buy Button",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "buy_button",
+        "label": "Button Title",
+        "default": "Buy Now"
+      }
+    ]
+  }
+{% endschema %}

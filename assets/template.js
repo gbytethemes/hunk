@@ -35,6 +35,22 @@ jQuery(document).ready(function() {
         jQuery(this).siblings(".dropdown-menu").toggle();
     });
 
+
+    jQuery('.collection-sort select#SortTags').on('change', function() {
+      var origin = window.location.origin;
+      var value = this.value;
+
+      window.location.href = origin + value;
+    });
+
+    jQuery('.collection-sort select#SortBy').on('change', function() {
+      var origin = window.location.origin;
+      var pathname = window.location.pathname;
+      var value = this.value;
+
+      window.location.href = origin + pathname + "?sort_by=" + value;
+    });
+
 });
 
 function reloadSlider(){

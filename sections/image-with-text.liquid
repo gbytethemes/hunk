@@ -11,14 +11,52 @@
   - Button label: label associated with the button
   - Button link: link of the button
 {%- endcomment -%}
-<section class="banner-section">
+
+{% capture image_bg %}
+  {%- if section.settings.image_bg != blank -%}
+  {{ section.settings.image_bg | img_url: 'master'}}
+  {%- endif -%}
+{% endcapture %}
+
+<style>
+  .banner-section-{{ section.id }}{
+    color: {{ section.settings.text_color }};
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  .banner-section-{{ section.id }} .banner-info, .banner-section-{{ section.id }} .banner-info .title{
+    color: {{ section.settings.text_color }};
+  }
+
+  .banner-section-{{ section.id }} .banner-info .btn{
+    color: {{ section.settings.btn_text_color }};
+    background-color: {{ section.settings.btn_bg_color }};
+    border-color: {{ section.settings.btn_border_color }};
+  }
+
+  .banner-section-{{ section.id }} .banner-info .btn:hover{
+    color: {{ section.settings.btn_text_color_hover }};
+    background-color: {{ section.settings.btn_bg_color_hover }};
+    border-color: {{ section.settings.btn_border_color_hover }};
+  }
+
+  .banner-section-{{ section.id }}{
+    border: 1px solid {{ section.settings.section_border_color }};
+    {%- if section.settings.section_border  == false -%}
+    border: none;
+    {%- endif -%}
+  }
+
+</style>
+
+<section class="banner-section banner-section-{{ section.id }}" style="background-image: url({{ image_bg }}); background-color: {{ section.settings.bg_color }};">
   <div class="container">
     <div class="row flex-align">
 
       <!--Put image-with-text-image block into a variable-->
       {% capture image_layout %}
 
-          {% if section.settings.image != blank %} 
+          {% if section.settings.image != blank %}
             {% include 'responsive-image' with
               image: section.settings.image,
               max_width: 545,
@@ -70,6 +108,18 @@
     "name": "Image with text",
     "settings": [
       {
+        "type": "checkbox",
+        "id": "section_border",
+        "label": "Section Border",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "section_border_color",
+        "label": "Border color",
+        "default": "#eeeeee"
+      },
+      {
         "type": "image_picker",
         "id": "image",
         "label": "Image"
@@ -112,6 +162,75 @@
         "type": "url",
         "id": "button_link",
         "label": "Button link"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": {
+          "da": "Baggrund",
+          "de": "Hintergrund",
+          "en": "Background",
+          "es": "Antecedentes",
+          "fi": "Tausta",
+          "fr": "Contexte",
+          "hi": "पृष्ठभूमि",
+          "it": "sfondo",
+          "ja": "バックグラウンド",
+          "ko": "배경",
+          "ms": "Latar belakang",
+          "nb": "Bakgrunn",
+          "nl": "Achtergrond",
+          "sv": "Bakgrund",
+          "th": "พื้นหลัง"
+        },
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "btn_text_color",
+        "label": "Button text",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "btn_text_color_hover",
+        "label": "Button text Hover",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "btn_bg_color",
+        "label": "Button Background",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "btn_bg_color_hover",
+        "label": "Button Background Hover",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "btn_border_color",
+        "label": "Button Border",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "btn_border_color_hover",
+        "label": "Button Border Hover",
+        "default": "#000"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_bg",
+        "label": "Background Image"
       }
     ],
     "presets": [
