@@ -1,3 +1,6 @@
+{% assign ppp = section.settings.post_page_limit %}
+{% paginate collection.products by ppp %}
+
 {% include 'site-wide-banner' %}
   <div class="container">
     <span class="title-min">{{ section.settings.title }}</span>
@@ -119,6 +122,11 @@
   </div>
 </div><!--.collection-products ends-->
 
+{% if paginate.pages > 1 %}
+  {% include 'pagination' %}
+{% endif %}
+{% endpaginate %}
+
 
 
 {% schema %}
@@ -140,11 +148,20 @@
       {
         "type": "range",
         "id": "post_limit",
-        "label": "Posts",
+        "label": "Posts per row",
         "min": 1,
         "max": 3,
         "step": 1,
         "default": 3
+      },
+      {
+        "type": "range",
+        "id": "post_page_limit",
+        "label": "Posts per page",
+        "min": 1,
+        "max": 50,
+        "step": 1,
+        "default": 12
       },
       {
         "type": "checkbox",

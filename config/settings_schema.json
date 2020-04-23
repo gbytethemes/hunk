@@ -33,7 +33,23 @@
       {
         "type": "color",
         "id": "body_bg_color",
-        "label": "Background",
+        "label": {
+          "da": "Baggrund",
+          "de": "Hintergrund",
+          "en": "Background",
+          "es": "Antecedentes",
+          "fi": "Tausta",
+          "fr": "Contexte",
+          "hi": "पृष्ठभूमि",
+          "it": "sfondo",
+          "ja": "バックグラウンド",
+          "ko": "배경",
+          "ms": "Latar belakang",
+          "nb": "Bakgrunn",
+          "nl": "Achtergrond",
+          "sv": "Bakgrund",
+          "th": "พื้นหลัง"
+        },
         "default": "#fff"
       },
       {
@@ -101,7 +117,23 @@
       {
         "type": "color",
         "id": "header_background",
-        "label": "Background",
+        "label": {
+          "da": "Baggrund",
+          "de": "Hintergrund",
+          "en": "Background",
+          "es": "Antecedentes",
+          "fi": "Tausta",
+          "fr": "Contexte",
+          "hi": "पृष्ठभूमि",
+          "it": "sfondo",
+          "ja": "バックグラウンド",
+          "ko": "배경",
+          "ms": "Latar belakang",
+          "nb": "Bakgrunn",
+          "nl": "Achtergrond",
+          "sv": "Bakgrund",
+          "th": "พื้นหลัง"
+        },
         "default": "#fff"
       },
       {
@@ -129,7 +161,23 @@
       {
         "type": "color",
         "id": "default_button_background",
-        "label": "Background",
+        "label": {
+          "da": "Baggrund",
+          "de": "Hintergrund",
+          "en": "Background",
+          "es": "Antecedentes",
+          "fi": "Tausta",
+          "fr": "Contexte",
+          "hi": "पृष्ठभूमि",
+          "it": "sfondo",
+          "ja": "バックグラウンド",
+          "ko": "배경",
+          "ms": "Latar belakang",
+          "nb": "Bakgrunn",
+          "nl": "Achtergrond",
+          "sv": "Bakgrund",
+          "th": "พื้นหลัง"
+        },
         "default": "#ffffff"
       },
       {
@@ -217,7 +265,29 @@
       {
         "type": "color",
         "id": "dropdown_arrow",
-        "label": "Fill color",
+        "label": "Fill",
+        "default": "#444444"
+      },
+      {
+        "type": "color",
+        "id": "dropdown_arrow_bg",
+        "label": {
+          "da": "Baggrund",
+          "de": "Hintergrund",
+          "en": "Background",
+          "es": "Antecedentes",
+          "fi": "Tausta",
+          "fr": "Contexte",
+          "hi": "पृष्ठभूमि",
+          "it": "sfondo",
+          "ja": "バックグラウンド",
+          "ko": "배경",
+          "ms": "Latar belakang",
+          "nb": "Bakgrunn",
+          "nl": "Achtergrond",
+          "sv": "Bakgrund",
+          "th": "พื้นหลัง"
+        },
         "default": "#444444"
       },
       {
@@ -233,7 +303,23 @@
       {
         "type": "color",
         "id": "product_background",
-        "label": "Background",
+        "label": {
+          "da": "Baggrund",
+          "de": "Hintergrund",
+          "en": "Background",
+          "es": "Antecedentes",
+          "fi": "Tausta",
+          "fr": "Contexte",
+          "hi": "पृष्ठभूमि",
+          "it": "sfondo",
+          "ja": "バックグラウンド",
+          "ko": "배경",
+          "ms": "Latar belakang",
+          "nb": "Bakgrunn",
+          "nl": "Achtergrond",
+          "sv": "Bakgrund",
+          "th": "พื้นหลัง"
+        },
         "default": "#ffffff"
       },
       {
@@ -261,7 +347,23 @@
       {
         "type": "color",
         "id": "form_fields_background",
-        "label": "Background",
+        "label": {
+          "da": "Baggrund",
+          "de": "Hintergrund",
+          "en": "Background",
+          "es": "Antecedentes",
+          "fi": "Tausta",
+          "fr": "Contexte",
+          "hi": "पृष्ठभूमि",
+          "it": "sfondo",
+          "ja": "バックグラウンド",
+          "ko": "배경",
+          "ms": "Latar belakang",
+          "nb": "Bakgrunn",
+          "nl": "Achtergrond",
+          "sv": "Bakgrund",
+          "th": "พื้นหลัง"
+        },
         "default": "#ffffff"
       },
       {
@@ -293,7 +395,23 @@
       {
         "type": "color",
         "id": "footer_bg",
-        "label": "Background",
+        "label": {
+          "da": "Baggrund",
+          "de": "Hintergrund",
+          "en": "Background",
+          "es": "Antecedentes",
+          "fi": "Tausta",
+          "fr": "Contexte",
+          "hi": "पृष्ठभूमि",
+          "it": "sfondo",
+          "ja": "バックグラウンド",
+          "ko": "배경",
+          "ms": "Latar belakang",
+          "nb": "Bakgrunn",
+          "nl": "Achtergrond",
+          "sv": "Bakgrund",
+          "th": "พื้นหลัง"
+        },
         "default": "#fff"
       },
       {
